@@ -1,0 +1,33 @@
+.hero-section {
+    border-top: 5px solid #0d6efd;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hero-section:hover {
+    transform: translateY(-10px);
+    shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+
+/* 프로필 칩 스타일 */
+.profile-chip {
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    border-radius: 50px !important;
+    transition: background 0.3s ease;
+}
+
+.profile-chip:hover {
+    background-color: #f8f9fa !important;
+    border-color: #0d6efd !important;
+}
+
+.custom-btn {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.custom-btn:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
