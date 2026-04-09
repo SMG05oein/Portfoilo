@@ -33,7 +33,7 @@ const ProjectComponent = ({ project }) => {
                     ))}
                 </div>
 
-                <Button variant="outline-dark" className="w-100 fw-bold py-2 rounded-pill">
+                <Button onClick={()=>{alert("페이지 개발 중")}} variant="outline-dark" className="w-100 fw-bold py-2 rounded-pill">
                     View Details
                 </Button>
             </Card.Body>
