@@ -28,7 +28,7 @@ const TechArticle = () => {
       {/* Header Banner */}
       <div style={{ position: 'relative', height: '400px', width: '100%', marginBottom: '3rem', overflow: 'hidden' }}>
         <img 
-          src={article.thumbnail} 
+          src={`${process.env.PUBLIC_URL}${article.thumbnail}`} 
           alt={article.title}
           style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.6)' }}
         />

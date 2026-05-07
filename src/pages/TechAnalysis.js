@@ -35,7 +35,7 @@ const TechAnalysis = () => {
                 >
                   <div className="col-md-4 p-0">
                     <img 
-                      src={article.thumbnail} 
+                      src={`${process.env.PUBLIC_URL}${article.thumbnail}`} 
                       alt={article.title} 
                       style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '200px' }}
                     />

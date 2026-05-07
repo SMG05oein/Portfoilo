@@ -11,7 +11,7 @@ const ProjectCard = ({ project }) => {
             {project.badge}
           </div>
         )}
-        <img src={project.image} alt={project.title} className="project-image" />
+        <img src={`${process.env.PUBLIC_URL}${project.image}`} alt={project.title} className="project-image" />
         <div className="ai-watermark">AI Generated Image</div>
       </Link>
       <div className="project-content">
