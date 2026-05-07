@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { FaLightbulb, FaHashtag, FaChevronRight } from 'react-icons/fa';
 import { techArticles } from '../data/techAnalysisData';
 
 const TechArticle = () => {
@@ -58,10 +59,35 @@ const TechArticle = () => {
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
-                  h2: ({node, children, ...props}) => <h2 style={{ color: 'var(--color-primary)', marginTop: '2rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem' }} {...props}>{children}</h2>,
-                  h3: ({node, children, ...props}) => <h3 style={{ color: 'var(--color-secondary)', marginTop: '1.5rem' }} {...props}>{children}</h3>,
+                  h2: ({node, children, ...props}) => (
+                    <h2 style={{ color: 'var(--color-primary)', marginTop: '2.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }} {...props}>
+                      <FaHashtag size="1.2rem" style={{ opacity: 0.6 }} />
+                      {children}
+                    </h2>
+                  ),
+                  h3: ({node, children, ...props}) => (
+                    <h3 style={{ color: 'var(--color-secondary)', marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }} {...props}>
+                      <FaChevronRight size="1rem" style={{ color: 'var(--color-primary)' }} />
+                      {children}
+                    </h3>
+                  ),
                   p: ({node, ...props}) => <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--color-text-main)' }} {...props} />,
                   li: ({node, ...props}) => <li style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--color-text-main)' }} {...props} />,
+                  blockquote: ({node, children, ...props}) => (
+                    <blockquote style={{
+                      background: 'rgba(251, 191, 36, 0.1)',
+                      borderLeft: '4px solid #fbbf24',
+                      padding: '1.2rem 1.2rem 0.2rem 1.2rem',
+                      borderRadius: '0 8px 8px 0',
+                      margin: '2rem 0',
+                      display: 'flex',
+                      gap: '1rem',
+                      boxShadow: '0 4px 15px rgba(0,0,0,0.05)'
+                    }} {...props}>
+                      <FaLightbulb size="1.5rem" color="#fbbf24" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+                      <div style={{ flex: 1, color: 'var(--color-text-main)' }}>{children}</div>
+                    </blockquote>
+                  ),
                   table: ({node, ...props}) => (
                     <div className="table-responsive my-4">
                       <table className="table table-bordered border-secondary" {...props} />
