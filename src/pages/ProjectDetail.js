@@ -26,19 +26,19 @@ const ProjectDetail = () => {
       {/* Hero Header */}
       <div style={{ position: 'relative', width: '100%', height: '400px', overflow: 'hidden', display: 'flex', alignItems: 'flex-end' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
-          <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(11, 15, 25, 0.4), rgba(11, 15, 25, 1))' }}></div>
+          <img src={`${process.env.PUBLIC_URL}${project.image}`} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.85))' }}></div>
         </div>
         <div className="container" style={{ position: 'relative', zIndex: 2, paddingBottom: '3rem' }}>
           <Link to={project.category === 'in-school' ? '/in-school' : '/extracurricular'} className="text-decoration-none" style={{ color: 'var(--color-primary)', display: 'inline-flex', alignItems: 'center', marginBottom: '1rem', fontWeight: '500' }}>
             <span style={{ marginRight: '0.5rem' }}>&larr;</span> {project.category === 'in-school' ? '교내 활동' : '교외 활동'} 목록으로
           </Link>
-          <div className="d-flex align-items-center gap-3 mb-2">
-             {project.badge && <span className={`project-badge badge-${project.badgeType} position-relative top-0 left-0`} style={{ transform: 'none', boxShadow: 'none' }}>{project.badge}</span>}
-             <span style={{ color: 'var(--color-text-muted)', fontWeight: '500' }}>{project.period}</span>
+          <div className="d-flex align-items-center gap-4 mb-2">
+            {project.badge && <span className={`project-badge badge-${project.badgeType} position-relative top-0 left-0`} style={{ transform: 'none', boxShadow: 'none' }}>{project.badge}</span>}
+            <span style={{ color: 'var(--color-text-muted)', fontWeight: '500' }}>{project.period}</span>
           </div>
-          <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: '800', lineHeight: '1.2', marginBottom: '1rem' }}>{project.title}</h1>
-          <p style={{ fontSize: '1.2rem', color: 'var(--color-text-main)', maxWidth: '800px', opacity: '0.9' }}>{project.description}</p>
+          <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: '800', lineHeight: '1.2', marginBottom: '1rem', color: '#ffffff', textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>{project.title}</h1>
+          <p style={{ fontSize: '1.2rem', color: 'rgba(255, 255, 255, 0.95)', maxWidth: '800px', fontWeight: '400' }}>{project.description}</p>
         </div>
       </div>
 
@@ -47,22 +47,21 @@ const ProjectDetail = () => {
           {/* Left Column - Tech Analysis */}
           <div className="col-lg-8 pe-lg-5">
             <h2 className="mb-4 d-flex align-items-center">
-               <FaSearch className="me-2" style={{ color: 'var(--color-primary)', verticalAlign: 'baseline' }} /> 기술 스택 분석 (Tech Analysis)
+              <FaSearch className="me-2" style={{ color: 'var(--color-primary)', verticalAlign: 'baseline' }} /> 기술 스택 분석 (Tech Analysis)
             </h2>
-            
+
             <div className="glass-panel p-4 mb-5" style={{ borderRadius: '16px' }}>
-              <h4 style={{ color: 'var(--color-primary)', marginBottom: '1rem' }}>기획 배경 및 문제 의식</h4>
-              <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '1.05rem' }}>{project.detailedAnalysis.background}</p>
-              
+              <h4 style={{ color: 'var(--color-primary)', marginBottom: '1rem', fontWeight: '700' }}>기획 배경 및 문제 의식</h4>
+              <p style={{ color: 'var(--color-text-main)', lineHeight: '1.8', fontSize: '1.05rem', opacity: 0.9 }}>{project.detailedAnalysis.background}</p>
+
               <hr style={{ borderColor: 'var(--color-border)', margin: '2rem 0' }} />
-              
-              <h4 style={{ color: 'var(--color-primary)', marginBottom: '1rem' }}>시스템 아키텍처</h4>
-              <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '1.05rem' }}>{project.detailedAnalysis.architecture}</p>
-              
+
+              <h4 style={{ color: 'var(--color-primary)', marginBottom: '1rem', fontWeight: '700' }}>시스템 아키텍처</h4>
+              <p style={{ color: 'var(--color-text-main)', lineHeight: '1.8', fontSize: '1.05rem', opacity: 0.9 }}>{project.detailedAnalysis.architecture}</p>
+
               <hr style={{ borderColor: 'var(--color-border)', margin: '2rem 0' }} />
-              
-              <h4 style={{ color: 'var(--color-primary)', marginBottom: '1rem' }}>기술적 세부 사항 및 구현</h4>
-              <div style={{ background: 'rgba(0,0,0,0.2)', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid var(--color-secondary)' }}>
+
+              <div style={{ background: 'var(--color-bg-alt)', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid var(--color-secondary)' }}>
                 <p style={{ color: 'var(--color-text-main)', lineHeight: '1.8', fontSize: '1.05rem', margin: 0 }}>{project.detailedAnalysis.techDetails}</p>
               </div>
             </div>
@@ -72,7 +71,7 @@ const ProjectDetail = () => {
           <div className="col-lg-4 mt-5 mt-lg-0">
             <div className="glass-panel p-4 sticky-top" style={{ top: '100px', borderRadius: '16px' }}>
               <h4 className="mb-4">프로젝트 정보</h4>
-              
+
               <div className="mb-4">
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginBottom: '0.2rem', textTransform: 'uppercase' }}>내 역할 (Role)</p>
                 <p style={{ fontWeight: '600', fontSize: '1.1rem' }}>{project.role}</p>

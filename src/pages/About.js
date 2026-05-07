@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { skills, personalInfo, awards, certifications } from '../data/portfolioData';
 import { FaBolt, FaBullseye, FaTrophy, FaCertificate } from 'react-icons/fa';
 import './About.css';
@@ -92,7 +93,18 @@ const About = () => {
                 {awards.map((award, index) => (
                   <div key={index} className="list-group-item bg-transparent border-bottom border-secondary p-3">
                     <div className="d-flex w-100 justify-content-between align-items-center mb-1">
-                      <h5 className="mb-0 text-white" style={{ fontWeight: '600' }}>{award.title}</h5>
+                      {award.projectId ? (
+                        <Link
+                          to={`/projects/${award.projectId}`}
+                          style={{ textDecoration: 'none' }}
+                        >
+                          <h5 className="mb-0" style={{ fontWeight: '600', color: 'var(--color-primary)' }}>
+                            {award.title} <span style={{ fontSize: '0.8rem', verticalAlign: 'middle' }}>↗</span>
+                          </h5>
+                        </Link>
+                      ) : (
+                        <h5 className="mb-0" style={{ fontWeight: '600', color: 'var(--color-text-main)' }}>{award.title}</h5>
+                      )}
                       <span className="badge bg-primary rounded-pill text-dark" style={{ background: 'var(--color-primary) !important' }}>{award.award}</span>
                     </div>
                     <small style={{ color: 'var(--color-text-muted)' }}>{award.date}</small>
@@ -111,7 +123,7 @@ const About = () => {
                 {certifications.map((cert, index) => (
                   <div key={index} className="list-group-item bg-transparent border-bottom border-secondary p-3">
                     <div className="d-flex w-100 justify-content-between mb-1">
-                      <h5 className="mb-0 text-white" style={{ fontWeight: '600' }}>{cert.name}</h5>
+                      <h5 className="mb-0" style={{ fontWeight: '600', color: 'var(--color-text-main)' }}>{cert.name}</h5>
                     </div>
                     <p className="mb-1" style={{ color: 'var(--color-primary)' }}>{cert.issuer}</p>
                     <small style={{ color: 'var(--color-text-muted)' }}>{cert.date}</small>

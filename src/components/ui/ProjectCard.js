@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaTrophy, FaMedal } from 'react-icons/fa';
 import './ProjectCard.css';
 
 const ProjectCard = ({ project }) => {
@@ -8,6 +9,8 @@ const ProjectCard = ({ project }) => {
       <Link to={`/projects/${project.id}`} className="project-image-container d-block" style={{ textDecoration: 'none' }}>
         {project.badge && (
           <div className={`project-badge badge-${project.badgeType}`}>
+            {project.badgeType === 'accent' && <FaTrophy style={{ marginRight: '4px', verticalAlign: 'text-bottom' }} />}
+            {project.badgeType === 'primary' && <FaMedal style={{ marginRight: '4px', verticalAlign: 'text-bottom' }} />}
             {project.badge}
           </div>
         )}

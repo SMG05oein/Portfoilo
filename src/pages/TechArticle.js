@@ -32,14 +32,14 @@ const TechArticle = () => {
           alt={article.title}
           style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.6)' }}
         />
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(11, 15, 25, 0.2), var(--color-bg))' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8))' }}></div>
         
         <div className="container" style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
           <div className="d-flex align-items-center justify-content-center mb-3">
             <span className="badge" style={{ background: 'var(--color-primary)', color: '#000', fontSize: '0.9rem', padding: '0.4rem 0.8rem' }}>{article.category}</span>
           </div>
-          <h1 className="text-center mb-3" style={{ color: '#fff', fontSize: '2.5rem', fontWeight: '700', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>{article.title}</h1>
-          <div className="text-center" style={{ color: 'rgba(255,255,255,0.8)' }}>
+          <h1 className="text-center mb-3" style={{ color: '#ffffff', fontSize: '2.5rem', fontWeight: '700', textShadow: '0 2px 15px rgba(0,0,0,0.6)' }}>{article.title}</h1>
+          <div className="text-center" style={{ color: 'rgba(255,255,255,0.95)', fontWeight: '500' }}>
             <span>{article.date}</span>
             <span className="mx-2">•</span>
             <span>{article.readTime}</span>
@@ -64,7 +64,7 @@ const TechArticle = () => {
                   li: ({node, ...props}) => <li style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--color-text-main)' }} {...props} />,
                   table: ({node, ...props}) => (
                     <div className="table-responsive my-4">
-                      <table className="table table-dark table-striped table-bordered border-secondary" {...props} />
+                      <table className="table table-bordered border-secondary" {...props} />
                     </div>
                   ),
                   th: ({node, ...props}) => <th style={{ color: 'var(--color-primary)' }} {...props} />,

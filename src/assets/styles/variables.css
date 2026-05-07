@@ -28,6 +28,7 @@
   
   /* Effects */
   --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.3);
+  --color-bg-alt: rgba(30, 41, 59, 0.4);
   --border-radius: 12px;
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
@@ -49,5 +50,6 @@
   --color-border: rgba(0, 0, 0, 0.1);
   --color-nav-bg: rgba(248, 250, 252, 0.8);
   
+  --color-bg-alt: rgba(0, 0, 0, 0.03);
   --shadow-glow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
