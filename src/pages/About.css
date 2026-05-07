@@ -1,0 +1,20 @@
+.skill-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  color: var(--color-text-main);
+}
+
+.skill-item:hover {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.5);
+  transform: translateY(-2px);
+  color: var(--color-primary);
+}
+
+.border-secondary {
+  border-color: var(--color-border) !important;
+}
