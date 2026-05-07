@@ -58,8 +58,8 @@ const TechArticle = () => {
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
-                  h2: ({node, ...props}) => <h2 style={{ color: 'var(--color-primary)', marginTop: '2rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem' }} {...props} />,
-                  h3: ({node, ...props}) => <h3 style={{ color: 'var(--color-secondary)', marginTop: '1.5rem' }} {...props} />,
+                  h2: ({node, children, ...props}) => <h2 style={{ color: 'var(--color-primary)', marginTop: '2rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem' }} {...props}>{children}</h2>,
+                  h3: ({node, children, ...props}) => <h3 style={{ color: 'var(--color-secondary)', marginTop: '1.5rem' }} {...props}>{children}</h3>,
                   p: ({node, ...props}) => <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--color-text-main)' }} {...props} />,
                   li: ({node, ...props}) => <li style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--color-text-main)' }} {...props} />,
                   table: ({node, ...props}) => (

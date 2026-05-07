@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaSun, FaMoon, FaBars, FaTimes, FaSearch } from 'react-icons/fa';
+import { FaSun, FaMoon, FaSearch } from 'react-icons/fa';
 import './Navigation.css';
 
 const Navigation = () => {
