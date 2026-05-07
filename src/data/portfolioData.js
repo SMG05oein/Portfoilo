@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "서민관",
   role: "백석대학교 컴퓨터공학부 소프트웨어학 전공",
-  bio: "프론트엔드부터 백엔드, AI 및 하드웨어 연동까지 아우르는 풀스택 역량을 키워가고 있습니다. 사용자에게 실질적인 가치를 제공하는 문제 해결에 열정을 가지고 있으며, 2024년 11월부터 현재까지 엠씨네에서 다양한 실무 외주 프로젝트를 수행하고 있습니다.",
+  bio: "프론트엔드부터 백엔드, AI 및 임베디드 연동까지 아우르는 풀스택 역량을 키워가고 있습니다. 사용자에게 실질적인 가치를 제공하는 문제 해결에 열정을 가지고 있으며, 2024년 11월부터 현재까지 엠씨네에서 다양한 실무 외주 프로젝트를 수행하고 있습니다.",
   email: "SMG05eoin@gmail.com",
   github: "https://github.com/SMG05oein"
 };
@@ -9,26 +9,27 @@ export const personalInfo = {
 export const skills = {
   frontend: [
     { name: "React", level: 90 },
-    { name: "JavaScript / TypeScript", level: 85 },
-    { name: "Bootstrap / jQuery", level: 80 }
+    { name: "TypeScript", level: 85 },
+    { name: "JavaScript (ES6+)", level: 90 },
+    { name: "Tailwind CSS / Bootstrap", level: 85 },
+    { name: "jQuery", level: 80 }
   ],
   backend: [
     { name: "Spring Boot", level: 80 },
+    { name: "Python (FastAPI / Flask)", level: 85 },
     { name: "Node.js / Express", level: 75 },
-    { name: "FastAPI", level: 70 },
-    { name: "Python", level: 85 },
-    { name: "PHP", level: 75 }
+    { name: "PHP (CodeIgniter)", level: 75 }
   ],
   database: [
-    { name: "MySQL", level: 80 },
+    { name: "MySQL / MariaDB", level: 85 },
     { name: "MsSQL", level: 80 },
-    { name: "MS Azure", level: 70 }
+    { name: "Redis / SSH Tunneling", level: 75 }
   ],
   ai_hardware: [
-    { name: "LLM (Ollama)", level: 65 },
-    { name: "TensorFlow", level: 65 },
-    { name: "Raspberry Pi / C", level: 80 },
-    { name: "Arduino", level: 80 }
+    { name: "LLM (Ollama / LangChain)", level: 70 },
+    { name: "Computer Vision (OpenCV / TensorFlow)", level: 70 },
+    { name: "Raspberry Pi / Arduino / C", level: 85 },
+    { name: "Automation (DrissionPage / pywinauto)", level: 90 }
   ]
 };
 
@@ -66,16 +67,16 @@ export const projects = [
     category: "extracurricular",
     title: "한이음: 프라이버시 보호형 홀몸 어르신 AI 알림 시스템",
     period: "2026.04 ~ 진행 중",
-    description: "카메라 영상을 외부로 전송하지 않고 기기 내부에서 처리하여 낙상 등 이상 징후를 실시간 탐지하는 시스템. 라즈베리파이 센서 부착, 데이터 관리, 멀티스레드를 직접 구현 중입니다.",
+    description: "엣지 컴퓨팅 기반의 실시간 이상 징후 탐지 시스템. 카메라 영상을 서버로 전송하지 않고 기기 내부에서 처리하여 개인정보 유출을 원천 차단합니다.",
     image: "/images/ai_security_cam.png",
-    technologies: ["React", "FastAPI", "MySQL", "Raspberry Pi"],
+    technologies: ["React", "FastAPI", "MySQL", "Raspberry Pi", "OpenCV"],
     badge: "진행 중",
     badgeType: "primary",
-    role: "임베디드 및 데이터 관리",
+    role: "임베디드 아키텍처 및 데이터 파이프라인 설계",
     detailedAnalysis: {
-      background: "초고령 사회 진입 및 1인 가구 급증으로 인한 사고 예방 및 24시간 실시간 안전망 구축이 시급합니다. 기존 CCTV 모니터링은 사생활 침해 우려가 커 도입에 한계가 존재했습니다.",
-      architecture: "카메라를 통해 수집된 영상을 외부로 전송하지 않고 기기(라즈베리파이) 내부에서 즉시 데이터로 변환 후 원본 영상은 파기하는 프라이버시 보호형 구조를 설계했습니다.",
-      techDetails: "실시간 이상 징후 탐지 알고리즘을 통해 추출된 익명화 데이터를 분석하여 낙상이나 장시간 부동 상태를 감별합니다. 감지된 데이터에는 디지털 서명 기술을 적용해 무결성을 확보했습니다. 센서 데이터 수집과 분석 로직을 효율적으로 처리하기 위해 멀티스레드(Multi-threading) 아키텍처를 도입하여 개발 중입니다."
+      background: "기존 홈캠의 사생활 침해 문제를 해결하기 위해 '영상 전송 없는 모니터링'이라는 컨셉으로 기획되었습니다.",
+      architecture: "라즈베리파이에서 수집된 영상을 로컬에서 즉시 분석 후, 위급 상황 발생 시에만 익명화된 텍스트 데이터와 디지털 서명을 전송하는 구조입니다.",
+      techDetails: "효율적인 리소스 관리를 위해 Python Multi-threading을 도입하여 영상 처리와 데이터 송수신을 분리했습니다. 또한 디지털 서명 기술을 적용해 데이터 위변조를 방지하는 등 무결성을 확보했습니다."
     }
   },
   {
@@ -98,18 +99,18 @@ export const projects = [
   {
     id: 3,
     category: "extracurricular",
-    title: "잉글리쉬앤 쿠키어학원 리뉴얼",
+    title: "잉글리쉬앤 쿠키어학원 통합 관리 플랫폼 리뉴얼",
     period: "2024.11 ~ 2025.03",
-    description: "엠씨네에서 실무 외주 프로젝트로 수행. 관리자 페이지 및 어학원 전체 리뉴얼 작업에 참여하였으며, SMS 전송, SMTP 이메일, 파일서버 연동 등의 기능 구현도 함께 진행했습니다.",
+    description: "엠씨네 실무 외주 프로젝트. 기존 .NET(ASP, ASPX) 기반의 노후 시스템을 PHP/jQuery 환경으로 성공적으로 마이그레이션하고, 네이버 스마트 에디터 연동 및 관리자 기능을 전면 개편했습니다.",
     image: "/images/academy_dashboard.png",
-    technologies: ["PHP", "jQuery", "MsSQL"],
+    technologies: ["PHP", "ASP/ASPX (Legacy)", "jQuery", "MsSQL", "Naver Smart Editor", "SMTP"],
     badge: "외주 개발",
     badgeType: "secondary",
-    role: "풀스택 리뉴얼 개발",
+    role: "풀스택 리뉴얼 및 시스템 마이그레이션 전담",
     detailedAnalysis: {
-      background: "기존 어학원 플랫폼의 노후화된 UI/UX 개선 및 관리자 페이지의 효율적인 기능 확장이 요구되었습니다.",
-      architecture: "PHP를 기반으로 서버 로직을 재구성하고, jQuery를 사용해 프론트엔드 비동기 처리를 강화했습니다. 데이터베이스는 MsSQL을 사용했습니다.",
-      techDetails: "Filezilla와 SSH를 활용한 서버 파일 관리 시스템을 연동했습니다. 알림 시스템 강화를 위해 SMTP 프로토콜을 이용한 이메일 발송 모듈과 외부 API를 통한 SMS 전송 시스템을 구축 및 통합하여 관리자의 업무 편의성을 극대화했습니다."
+      background: "기존 .NET 기반의 ASP, ASPX 페이지들이 노후화되어 유지보수가 어렵고 UI가 낙후된 상태였습니다. 이를 현대적인 웹 환경으로 리뉴얼하여 운영 효율성을 높이고, 콘텐츠 관리의 편의성을 확보하는 것이 핵심 과제였습니다.",
+      architecture: "기존 .NET 환경의 비즈니스 로직을 분석하여 PHP 환경으로 재구축하는 마이그레이션을 수행했습니다. 특히 프론트엔드는 jQuery AJAX를 활용해 비동기 데이터 통신을 강화하여 사용자 경험을 현대화했습니다.",
+      techDetails: "네이버 스마트 에디터를 도입하여 관리자가 게시물 및 공지사항을 HTML 지식 없이도 손쉽게 작성할 수 있도록 구현했습니다. 또한 SMTP 기반의 자동 메일 발송과 외부 API 연동을 통한 SMS 알림 시스템을 통합했으며, SSH 환경에서 파일 서버를 연동하여 안정적인 데이터 관리 체계를 구축했습니다."
     }
   },
   {
@@ -119,7 +120,7 @@ export const projects = [
     period: "2026.04",
     description: "엠씨네에서 실무 외주 프로젝트로 수행. python의 psutil, pywinauto, ctypes 라이브러리를 활용해 협회 데이터베이스 조회 및 시스템 제어 매크로를 개발했습니다.",
     image: "/images/data_macro_tool.png",
-    technologies: ["Python", "pywinauto", "psutil"],
+    technologies: ["Python", "pywinauto", "psutil", "MySQL"],
     badge: "외주 개발",
     badgeType: "secondary",
     role: "Python 매크로 개발",
@@ -132,35 +133,35 @@ export const projects = [
   {
     id: 5,
     category: "extracurricular",
-    title: "(주) 쿠첸 네이버 카페 크롤러 개발",
+    title: "(주) 쿠첸 네이버 카페 크롤러 및 관리 GUI 툴 개발",
     period: "2026.03 ~ 2026.04",
-    description: "엠씨네에서 실무 외주 프로젝트로 수행. 타겟 카페 데이터를 추출하기 위한 파이썬 크롤러 개발. (추후 크롤러 다운로드를 위한 웹사이트 개설 예정)",
+    description: "엠씨네 실무 외주 프로젝트. 타겟 카페 데이터 추출 및 분석을 위한 고성능 파이썬 크롤러와 비개발자를 위한 관리자용 GUI 대시보드 개발. (추후 배포 웹사이트 개설 예정)",
     image: "/images/web_crawler_tool.png",
-    technologies: ["Python", "Web Scraping"],
+    technologies: ["Python", "DrissionPage", "CustomTkinter", "MySQL", "SSH Tunneling"],
     badge: "외주 개발",
     badgeType: "secondary",
-    role: "크롤러 봇 개발",
+    role: "크롤러 봇 및 GUI 솔루션 전담 개발",
     detailedAnalysis: {
-      background: "마케팅 전략 수립 및 고객 니즈 파악을 위해 네이버 카페의 특정 게시물 및 댓글 데이터를 자동 수집하는 툴이 필요했습니다.",
-      architecture: "Python BeautifulSoup/Selenium 기반으로 네이버 로그인을 우회하고 정적/동적 데이터를 모두 수집하는 하이브리드 크롤러 구조입니다.",
-      techDetails: "페이지네이션 처리 및 안티 스크래핑(Anti-scraping) 정책 우회를 위한 딜레이 로직과 세션 관리 기능을 구현했습니다. 수집된 데이터를 구조화된 포맷으로 변환 및 저장하는 모듈을 최적화했습니다."
+      background: "마케팅 전략 수립을 위해 네이버 카페 데이터 수집과 데이터랩(DataLab) 기반의 키워드 분석이 필요했으며, 실무자가 직접 조작할 수 있는 직관적인 관리자용 툴이 요구되었습니다.",
+      architecture: "일반적인 Selenium 대신 DrissionPage와 pywinauto를 도입해 탐지 우회 능력과 속도를 극대화했습니다. 또한 CustomTkinter를 활용하여 관리자 로그인 및 데이터 대시보드를 포함한 완성도 높은 GUI 환경을 구축했습니다.",
+      techDetails: "SSH 터널링을 적용하여 DB 통신 보안을 강화하고, 안티 크롤링(Anti-crawling) 정책 우회를 위한 세션/딜레이 최적화를 수행했습니다. 유지보수 편의성을 위해 자동 업데이트 기능과 버전 관리 시스템까지 통합 구현했습니다."
     }
   },
   {
     id: 6,
     category: "extracurricular",
-    title: "카카오 구름톤: 충남권 소상공인 지도 앱",
+    title: "카카오 구름톤: 충남권 소상공인 지도 서비스",
     period: "2025.07.28 ~ 2025.07.29",
-    description: "제1회 충남권 연합 해커톤 참가작. 천안사랑카드 사용 가능 지점만 DB에 넣어 사용자가 찾아가고 예약할 수 있는 천안 맞춤 서비스. 프론트엔드 총괄 담당.",
+    description: "제1회 충남권 연합 해커톤 참가작. Kakao Map API를 활용한 가맹점 위치 기반 서비스입니다. 백엔드 리소스가 부족한 상황에서 프론트엔드 프록시 설정을 통해 통신 이슈를 주도적으로 해결했습니다.",
     image: "/images/local_map_app.png",
-    technologies: ["React", "Bootstrap"],
+    technologies: ["React", "React Kakao Map API", "http-proxy-middleware", "Bootstrap"],
     badge: "해커톤",
     badgeType: "primary",
-    role: "프론트엔드 총괄",
+    role: "프론트엔드 총괄 및 인터페이스 최적화",
     detailedAnalysis: {
-      background: "천안 지역 내 소상공인의 상권을 활성화하고, 천안사랑카드 이용자들의 가맹점 탐색 편의성을 높이기 위해 기획되었습니다.",
-      architecture: "React SPA 구조 위에 Bootstrap을 적용하여 모바일 퍼스트(Mobile-first) 지도 애플리케이션을 빠르게 프로토타이핑했습니다.",
-      techDetails: "제한된 해커톤 시간(무박 2일) 내에 빠른 뷰단 렌더링을 위해 컴포넌트 구조를 단순화하고, 상태 관리 도구를 최소화했습니다. 지도 API를 연동하여 마커를 동적으로 생성하고 가맹점 예약 모달과 연결하는 UI/UX 플로우를 설계했습니다."
+      background: "천안 지역 소상공인 상권 활성화를 위해 기획되었으나, 무박 2일의 짧은 일정과 한정된 백엔드 개발 리소스로 인해 실시간 데이터 연동 과정에서 병목 현상이 발생했습니다.",
+      architecture: "React를 기반으로 Kakao Map SDK를 통합했으며, 서버 측의 부하를 줄이고 빠른 프로토타이핑을 위해 프론트엔드 중심의 아키텍처를 설계했습니다.",
+      techDetails: "개발 과정 중 백엔드 인력 부족으로 인해 API 서버의 CORS(Cross-Origin Resource Sharing) 이슈 해결이 지연되는 상황을 맞이했습니다. 프로젝트 완수를 위해 직군의 경계를 넘어 프론트엔드 레벨에서 해결 가능한 대안을 모색했고, http-proxy-middleware를 활용한 프록시 서버 설정을 주도적으로 구현했습니다. 결과적으로 서버 측 수정 없이도 통신 이슈를 해결하여 팀의 개발 속도를 정상화하고 최종 시연을 성공시켰습니다."
     }
   },
   {
@@ -168,16 +169,16 @@ export const projects = [
     category: "extracurricular",
     title: "카카오 구름톤: 세대간 단어 갭 줄이기 카드 게임",
     period: "2025.11.22 ~ 2025.11.23",
-    description: "전남/충남 연합 해커톤 참가작. 노년층과 청년층의 신조어/한자어 차이를 줄이는 카드 게임. 백엔드 총괄을 맡아 윈도우 포트포워딩, Swagger 연동, Azure DB를 활용했습니다.",
+    description: "전남/충남 연합 해커톤 참가작. 세대 간 언어 장벽을 허무는 단어 학습 카드 게임. 원격 데스크톱(RDP) 환경에서의 서버 배포 및 CORS 이슈 해결을 통해 시스템을 구축했습니다.",
     image: "/images/card_game_app.png",
-    technologies: ["Spring Boot", "Swagger", "MS Azure"],
+    technologies: ["Spring Boot", "Swagger", "MS Azure", "Remote Desktop (RDP)", "CORS"],
     badge: "해커톤",
     badgeType: "primary",
-    role: "백엔드 총괄",
+    role: "백엔드 및 서버 총괄",
     detailedAnalysis: {
-      background: "노년층(신조어 부족)과 청년층(한자어 부족) 간의 세대 차이를 단어 학습 게임이라는 매개체로 허물기 위해 기획된 아이디어입니다.",
-      architecture: "Spring Boot를 활용한 RESTful API 백엔드와 MS Azure 클라우드 데이터베이스를 연동하는 아키텍처입니다.",
-      techDetails: "로컬 Windows 컴퓨터를 포트포워딩하여 외부 클라이언트(프론트엔드)가 접속할 수 있는 임시 서버로 전환하는 네트워크 설정을 직접 구성했습니다. Swagger를 도입하여 프론트엔드 개발자와 API 명세서를 효율적으로 공유하며 협업 속도를 높였습니다."
+      background: "서로 다른 세대가 사용하는 단어의 차이를 게임으로 풀어내 소통을 돕고자 기획되었으며, 실시간 연동이 중요한 멀티플레이 요소가 포함된 프로젝트였습니다.",
+      architecture: "Spring Boot 백엔드와 MS Azure DB를 연동하고, 대회 측에서 제공한 Windows 서버를 활용해 외부 서비스가 가능한 배포 환경을 구축했습니다.",
+      techDetails: "대회 측 제공 윈도우 서버 환경에서 백엔드 배포를 위해 원격 데스크톱(RDP)을 활용하여 환경을 설정했습니다. 특히 네트워크 보안 정책으로 인한 접속 제한을 해결하기 위해 학교 관리자와 직접 소통하여 필요한 포트를 확보받았으며, 서로 다른 도메인 간 통신 시 발생하는 CORS(Cross-Origin Resource Sharing) 에러를 Spring Security 설정을 통해 해결하여 프론트엔드와의 안정적인 데이터 교환을 성공시켰습니다. 제한된 시간 내에 인프라 제약을 극복하고 시연 가능한 라이브 서버를 구축한 경험입니다."
     }
   },
   {
@@ -200,18 +201,18 @@ export const projects = [
   {
     id: 9,
     category: "in-school",
-    title: "교내 C언어 경진대회 대상",
+    title: "교내 C언어 경진대회 대상 (1위)",
     period: "2025.06.19",
-    description: "교내 C언어 경진대회에서 대상(1위)을 수상했습니다. 포인터, 구조체, 동적 메모리 할당 등 C언어의 핵심 개념을 실제 문제에 적용하는 능력을 겨루는 대회였습니다.",
+    description: "C언어의 핵심 메커니즘인 포인터와 동적 메모리 설계를 활용하여 복잡한 알고리즘 문제를 해결하고, 최적화된 코드 구현 능력을 검증받아 전체 1위 대상을 수상했습니다.",
     image: "/images/c_lang_contest.png",
-    technologies: ["C Language", "Algorithm", "Data Structures"],
+    technologies: ["C Language", "Data Structures", "Memory Management", "Algorithm"],
     badge: "대상",
     badgeType: "accent",
-    role: "개인 참가",
+    role: "개인 참가 (전체 1위)",
     detailedAnalysis: {
-      background: "학교 정규 커리큘럼에서 배운 C언어 지식을 실제 경쟁 환경에서 검증하고자 교내 경진대회에 참가했습니다.",
-      architecture: "포인터 기반의 자료구조 조작과 알고리즘 구현을 중심으로 문제를 풀이했습니다. 메모리 관리와 효율적인 자료 처리에 초점을 맞췄습니다.",
-      techDetails: "포인터와 동적 메모리 할당(malloc/free)을 활용한 연결 리스트 구현, 구조체를 이용한 복합 데이터 처리, 재귀 함수를 활용한 알고리즘 설계 등을 구현했습니다. 한정된 시간 내에 정확하고 효율적인 코드를 작성하는 실전 경험을 쌓을 수 있었습니다."
+      background: "컴퓨터 구조에 대한 깊은 이해를 바탕으로, 가장 로우 레벨 언어인 C언어를 통해 효율적인 알고리즘 설계 역량을 증명하고자 참가했습니다.",
+      architecture: "복잡한 데이터 연산 시 발생하는 메모리 병목 현상을 최소화하기 위해 사용자 정의 구조체와 효율적인 인덱싱 알고리즘을 결합한 최적화 아키텍처를 적용했습니다.",
+      techDetails: "포인터 연산과 malloc/free 기반의 동적 메모리 할당을 정교하게 제어하여 연결 리스트 및 트리 구조를 구현했습니다. 특히 재귀적 알고리즘의 스택 오버플로우 위험을 방지하기 위한 반복문 기반 최적화와 메모리 누수(Memory Leak) 방지를 위한 엄격한 자원 해제 로직을 구현하여 코드의 안정성과 성능을 동시에 확보했습니다."
     }
   }
 ];
