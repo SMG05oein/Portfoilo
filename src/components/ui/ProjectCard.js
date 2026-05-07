@@ -25,16 +25,16 @@ const ProjectCard = ({ project }) => {
           {project.period}
         </p>
         <p className="project-description">{project.description}</p>
-        
+
         <div className="project-tech">
           {project.technologies.map((tech, index) => (
             <span key={index} className="tech-badge">{tech}</span>
           ))}
         </div>
-        
+
         <div className="project-links mt-auto">
           <Link to={`/projects/${project.id}`} className="btn-primary w-100 text-center text-decoration-none">
-            상세 분석 보기
+            상세 보기
           </Link>
         </div>
       </div>

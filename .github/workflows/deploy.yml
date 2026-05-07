@@ -5,6 +5,9 @@ on:
     branches:
       - master  # master 브랜치에 푸시할 때마다 실행됩니다.
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
