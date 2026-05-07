@@ -69,7 +69,7 @@ void quickSort(int arr[], int left, int right) {
   },
   {
     id: 2,
-    title: "라즈베리파이/아두이노 회로도 설계 및 초음파 센서 노이즈 필터링 전략",
+    title: "아두이노 회로도 설계 및 초음파 센서 노이즈 필터링 전략",
     date: "2026.05.07",
     category: "Hardware / IoT",
     readTime: "5 min read",
