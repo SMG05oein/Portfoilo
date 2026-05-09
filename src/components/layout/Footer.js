@@ -21,8 +21,13 @@ const Footer = () => {
         <p style={{ color: 'var(--color-text-muted)', marginBottom: '1rem', fontSize: '0.9rem' }}>
           &copy; {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
         </p>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
-          <a href={personalInfo.github} target="_blank" rel="noreferrer" style={{ color: 'var(--color-text-muted)' }}>GitHub</a>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+            <a href={personalInfo.github} target="_blank" rel="noreferrer" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>GitHub</a>
+          </div>
+          <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', opacity: 0.7, margin: 0 }}>
+            Designed & Developed by {personalInfo.name} with <span style={{ color: 'var(--color-primary)', fontWeight: '600' }}>Antigravity</span>
+          </p>
         </div>
       </div>
     </footer>

@@ -96,3 +96,49 @@ a:hover {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
 }
+
+/* Markdown Table Styling */
+.markdown-body .table {
+  color: var(--color-text-main) !important;
+  background-color: var(--color-bg-alt) !important;
+  border-color: var(--color-border) !important;
+  margin: 2rem 0 !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+.markdown-body .table tr,
+.markdown-body .table td {
+  background-color: transparent !important;
+  color: var(--color-text-main) !important;
+  white-space: nowrap !important;
+}
+
+.markdown-body .table th {
+  background-color: var(--color-surface-hover) !important;
+  color: var(--color-primary) !important;
+  border-color: var(--color-border) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  padding: 1rem !important;
+  white-space: nowrap !important;
+}
+
+.markdown-body .table td {
+  border-color: var(--color-border) !important;
+  padding: 1rem !important;
+  vertical-align: middle !important;
+}
+
+.markdown-body .table-bordered {
+  border: 1px solid var(--color-border) !important;
+}
+
+/* Table Hover Effect */
+.markdown-body .table tr:hover {
+  background-color: rgba(56, 189, 248, 0.03) !important;
+}

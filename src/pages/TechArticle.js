@@ -28,13 +28,13 @@ const TechArticle = () => {
     <div className="page-container" style={{ paddingBottom: 'var(--space-xl)' }}>
       {/* Header Banner */}
       <div style={{ position: 'relative', height: '400px', width: '100%', marginBottom: '3rem', overflow: 'hidden' }}>
-        <img 
-          src={`${process.env.PUBLIC_URL}${article.thumbnail}`} 
+        <img
+          src={`${process.env.PUBLIC_URL}${article.thumbnail}`}
           alt={article.title}
           style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.6)' }}
         />
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8))' }}></div>
-        
+
         <div className="container" style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
           <div className="d-flex align-items-center justify-content-center mb-3">
             <span className="badge" style={{ background: 'var(--color-primary)', color: '#000', fontSize: '0.9rem', padding: '0.4rem 0.8rem' }}>{article.category}</span>
@@ -43,7 +43,7 @@ const TechArticle = () => {
           <div className="text-center" style={{ color: 'rgba(255,255,255,0.95)', fontWeight: '500' }}>
             <span>{article.date}</span>
             <span className="mx-2">•</span>
-            <span>{article.readTime}</span>
+            <span style={{ color: 'var(--color-primary)' }}>학습 및 실무 지식 직접 정리</span>
           </div>
         </div>
       </div>
@@ -56,24 +56,35 @@ const TechArticle = () => {
         <div className="row justify-content-center mt-3">
           <div className="col-12 col-lg-9">
             <div className="glass-panel p-4 p-md-5 markdown-body" style={{ borderRadius: '16px', background: 'var(--color-surface)' }}>
+              <div style={{
+                borderLeft: '4px solid var(--color-primary)',
+                background: 'rgba(56, 189, 248, 0.05)',
+                padding: '1rem 1.5rem',
+                marginBottom: '2rem',
+                borderRadius: '0 8px 8px 0',
+                fontSize: '0.95rem',
+                color: 'var(--color-text-muted)'
+              }}>
+                <strong>Author's Note:</strong> 본 아티클은 제가 학습한 이론 또는 실무 경험을 바탕으로 핵심 내용을 직접 분석하고 구조화하여 정리한 기록입니다.
+              </div>
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
-                  h2: ({node, children, ...props}) => (
+                  h2: ({ node, children, ...props }) => (
                     <h2 style={{ color: 'var(--color-primary)', marginTop: '2.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }} {...props}>
                       <FaHashtag size="1.2rem" style={{ opacity: 0.6 }} />
                       {children}
                     </h2>
                   ),
-                  h3: ({node, children, ...props}) => (
+                  h3: ({ node, children, ...props }) => (
                     <h3 style={{ color: 'var(--color-secondary)', marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }} {...props}>
                       <FaChevronRight size="1rem" style={{ color: 'var(--color-primary)' }} />
                       {children}
                     </h3>
                   ),
-                  p: ({node, ...props}) => <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--color-text-main)' }} {...props} />,
-                  li: ({node, ...props}) => <li style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--color-text-main)' }} {...props} />,
-                  blockquote: ({node, children, ...props}) => (
+                  p: ({ node, ...props }) => <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--color-text-main)' }} {...props} />,
+                  li: ({ node, ...props }) => <li style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--color-text-main)' }} {...props} />,
+                  blockquote: ({ node, children, ...props }) => (
                     <blockquote style={{
                       background: 'rgba(251, 191, 36, 0.1)',
                       borderLeft: '4px solid #fbbf24',
@@ -88,13 +99,13 @@ const TechArticle = () => {
                       <div style={{ flex: 1, color: 'var(--color-text-main)' }}>{children}</div>
                     </blockquote>
                   ),
-                  table: ({node, ...props}) => (
+                  table: ({ node, ...props }) => (
                     <div className="table-responsive my-4">
-                      <table className="table table-bordered border-secondary" {...props} />
+                      <table className="table table-bordered" {...props} />
                     </div>
                   ),
-                  th: ({node, ...props}) => <th style={{ color: 'var(--color-primary)' }} {...props} />,
-                  code({node, inline, className, children, ...props}) {
+                  th: ({ node, ...props }) => <th {...props} />,
+                  code({ node, inline, className, children, ...props }) {
                     const match = /language-(\w+)/.exec(className || '')
                     return !inline && match ? (
                       <div style={{ borderRadius: '8px', overflow: 'hidden', margin: '1.5rem 0' }}>
