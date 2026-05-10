@@ -43,7 +43,7 @@ const TechAnalysis = () => {
                   <div className="col-md-8 p-4 d-flex flex-column justify-content-center">
                     <div className="d-flex align-items-center mb-2">
                       <span className="badge bg-primary me-2" style={{ background: 'var(--color-primary) !important', color: '#000' }}>{article.category}</span>
-                      <small style={{ color: 'var(--color-text-muted)' }}>{article.date} · {article.readTime}</small>
+                      <small style={{ color: 'var(--color-secondary)', fontWeight: '600' }}>직접 정리 및 분석</small>
                     </div>
                     <h3 className="mb-3" style={{ color: 'var(--color-text-main)', fontWeight: '600', fontSize: '1.4rem' }}>{article.title}</h3>
                     <p style={{ color: 'var(--color-text-muted)', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
