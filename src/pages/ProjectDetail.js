@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { projects } from '../data/portfolioData';
 
 const ProjectDetail = () => {
@@ -22,23 +22,23 @@ const ProjectDetail = () => {
   }
 
   return (
-    <div className="page-container" style={{ paddingBottom: 'var(--space-xl)' }}>
+    <div className="page-container" style={{ paddingTop: '80px', paddingBottom: 'var(--space-xl)' }}>
       {/* Hero Header */}
-      <div style={{ position: 'relative', width: '100%', height: '400px', overflow: 'hidden', display: 'flex', alignItems: 'flex-end' }}>
+      <div style={{ position: 'relative', width: '100%', height: '500px', overflow: 'hidden', display: 'flex', alignItems: 'flex-end' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
           <img src={`${process.env.PUBLIC_URL}${project.image}`} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.85))' }}></div>
+          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9))' }}></div>
         </div>
-        <div className="container" style={{ position: 'relative', zIndex: 2, paddingBottom: '3rem' }}>
-          <Link to={project.category === 'in-school' ? '/in-school' : '/extracurricular'} className="text-decoration-none" style={{ color: 'var(--color-primary)', display: 'inline-flex', alignItems: 'center', marginBottom: '1rem', fontWeight: '500' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 2, paddingBottom: '4rem' }}>
+          <Link to={project.category === 'in-school' ? '/in-school' : '/extracurricular'} className="text-decoration-none" style={{ color: 'var(--color-primary)', display: 'inline-flex', alignItems: 'center', marginBottom: '1.5rem', fontWeight: '500', transition: 'transform 0.3s ease' }}>
             <span style={{ marginRight: '0.5rem' }}>&larr;</span> {project.category === 'in-school' ? '교내 활동' : '교외 활동'} 목록으로
           </Link>
-          <div className="d-flex align-items-center gap-4 mb-2">
+          <div className="d-flex align-items-center gap-4 mb-3">
             {project.badge && <span className={`project-badge badge-${project.badgeType} position-relative top-0 left-0`} style={{ transform: 'none', boxShadow: 'none' }}>{project.badge}</span>}
-            <span style={{ color: 'var(--color-text-muted)', fontWeight: '500' }}>{project.period}</span>
+            <span style={{ color: 'rgba(255, 255, 255, 0.7)', fontWeight: '500' }}>{project.period}</span>
           </div>
-          <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: '800', lineHeight: '1.2', marginBottom: '1rem', color: '#ffffff', textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>{project.title}</h1>
-          <p style={{ fontSize: '1.2rem', color: 'rgba(255, 255, 255, 0.95)', maxWidth: '800px', fontWeight: '400' }}>{project.description}</p>
+          <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: '800', lineHeight: '1.1', marginBottom: '1.5rem', color: '#ffffff', textShadow: '0 4px 20px rgba(0,0,0,0.4)' }}>{project.title}</h1>
+          <p style={{ fontSize: '1.25rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '900px', fontWeight: '400', lineHeight: '1.6' }}>{project.description}</p>
         </div>
       </div>
 
@@ -86,7 +86,7 @@ const ProjectDetail = () => {
                 </div>
               </div>
 
-              {(project.liveLink || project.githubLink) && (
+              {(project.liveLink || project.githubLink || (project.links && project.links.length > 0)) && (
                 <div className="mt-5">
                   {project.liveLink && (
                     <a href={project.liveLink} target="_blank" rel="noreferrer" className="btn-primary w-100 d-block text-center text-decoration-none mb-3">
@@ -94,10 +94,30 @@ const ProjectDetail = () => {
                     </a>
                   )}
                   {project.githubLink && (
-                    <a href={project.githubLink} target="_blank" rel="noreferrer" className="btn-secondary w-100 d-block text-center text-decoration-none">
-                      소스 코드 확인 (GitHub)
+                    <a href={project.githubLink} target="_blank" rel="noreferrer" className="btn-secondary w-100 d-block text-center text-decoration-none mb-3">
+                      <FaGithub className="me-2" /> 소스 코드 확인 (GitHub)
                     </a>
                   )}
+                  {project.links && project.links.map((link, index) => (
+                    <a 
+                      key={index} 
+                      href={link.url} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className={`w-100 d-block text-center text-decoration-none mb-3 ${link.name === 'GitHub' ? 'btn-secondary' : 'btn-outline-primary'}`}
+                      style={link.name !== 'GitHub' ? {
+                        padding: '12px 24px',
+                        borderRadius: '8px',
+                        fontWeight: '600',
+                        border: '2px solid var(--color-primary)',
+                        color: 'var(--color-primary)',
+                        backgroundColor: 'transparent',
+                        transition: 'all 0.3s ease'
+                      } : {}}
+                    >
+                      {link.name === 'GitHub' ? <FaGithub className="me-2" /> : <FaExternalLinkAlt className="me-2" size="0.9em" />} {link.name} 확인
+                    </a>
+                  ))}
                 </div>
               )}
             </div>

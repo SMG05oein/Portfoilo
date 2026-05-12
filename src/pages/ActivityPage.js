@@ -91,8 +91,26 @@ const ActivityPage = ({ category, title, subtitle }) => {
               </div>
             </div>
 
-            {/* Tag Pills */}
-            <div className="d-flex flex-wrap justify-content-center gap-2">
+            {/* Tag Pills - Horizontal Scrollable */}
+            <div 
+              className="tag-scroll-container d-flex gap-2 mb-2" 
+              style={{ 
+                overflowX: 'auto', 
+                whiteSpace: 'nowrap', 
+                padding: '0.5rem 0.2rem',
+                scrollbarWidth: 'none', /* Firefox */
+                msOverflowStyle: 'none', /* IE/Edge */
+                WebkitOverflowScrolling: 'touch',
+                justifyContent: tags.length > 8 ? 'flex-start' : 'center'
+              }}
+            >
+              <style>
+                {`
+                  .tag-scroll-container::-webkit-scrollbar {
+                    display: none; /* Chrome, Safari, Opera */
+                  }
+                `}
+              </style>
               {tags.map((tag) => {
                 const isSelected = tag === 'All' ? selectedTags.length === 0 : selectedTags.includes(tag);
                 return (
@@ -101,13 +119,16 @@ const ActivityPage = ({ category, title, subtitle }) => {
                     onClick={() => toggleTag(tag)}
                     className="btn"
                     style={{
-                      padding: '0.4rem 1rem',
-                      borderRadius: '20px',
-                      fontSize: '0.9rem',
+                      padding: '0.5rem 1.2rem',
+                      borderRadius: '25px',
+                      fontSize: '0.85rem',
+                      fontWeight: '500',
+                      flexShrink: 0,
                       border: `1px solid ${isSelected ? 'var(--color-primary)' : 'var(--color-border)'}`,
                       background: isSelected ? 'var(--color-primary)' : 'var(--color-surface)',
                       color: isSelected ? '#fff' : 'var(--color-text-main)',
-                      transition: 'all 0.2s ease'
+                      boxShadow: isSelected ? 'var(--shadow-glow)' : 'none',
+                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                     }}
                   >
                     {tag}

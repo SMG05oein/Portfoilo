@@ -84,16 +84,20 @@ export const projects = [
     category: "in-school",
     title: "멍멍케어 (반려견 AI 수의사 플랫폼)",
     period: "2025.11 ~ 2025.12.05",
-    description: "반려견을 위한 케어 및 정보 공유 플랫폼. Ollama 기반 LLM 모델 파인튜닝과 TensorFlow를 활용한 AI 수의사 서비스로 반려동물의 관리를 돕습니다.",
+    description: "반려견을 위한 건강 케어 및 정보 공유 플랫폼. 12,000여 개의 의료 데이터를 학습한 AI 수의사 서비스와 반려견 일지, 커뮤니티 기능을 제공합니다.",
     image: "/images/pet_care_app.png",
-    technologies: ["Node.js", "React", "MySQL", "LLM(Ollama)", "TensorFlow", "Python"],
-    badge: "장려상",
+    technologies: ["Node.js", "Express", "React", "MySQL", "Docker", "Ollama", "Python", "TensorFlow"],
+    badge: "장려상 (팀 서사이)",
     badgeType: "accent",
-    role: "AI 모델링 및 백엔드 개발",
+    role: "백엔드 개발 및 프론트엔드 서포트 (3인 팀 프로젝트)",
+    links: [
+      { name: "GitHub", url: "https://github.com/SMG05oein/smart_it" },
+      { name: "수상 명단", url: "https://community.bu.ac.kr/info/1793/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaW5mbyUyRjkwMiUyRjU0MTA4JTJGYXJ0Y2xWaWV3LmRvJTNGcGFnZSUzRDElMjZzcmNoQ29sdW1uJTNEJTI2c3JjaFdyZCUzRCUyNmJic0NsU2VxJTNEJTI2YmJzT3BlbldyZFNlcSUzRCUyNnJnc0JnbmRlU3RyJTNEJTI2cmdzRW5kZGVTdHIlM0QlMjZpc1ZpZXdNaW5lJTNEZmFsc2UlMjZwYXNzd29yZCUzRCUyNg%3D%3D" }
+    ],
     detailedAnalysis: {
-      background: "반려동물 인구의 증가와 함께 반려동물의 건강 관리를 언제 어디서나 쉽게 할 수 있는 AI 기반 플랫폼의 필요성에서 출발했습니다.",
-      architecture: "React로 사용자 친화적 UI를 구축하고, Node.js 기반 백엔드로 안정적인 서비스를 제공합니다. AI 분석은 Python 환경에서 구동됩니다.",
-      techDetails: "오픈소스 LLM인 Ollama 모델을 수의학 데이터를 활용해 파인튜닝(Fine-tuning)하여 반려견 특화 AI 수의사 챗봇을 구축했습니다. 이미지 기반 질환 판별은 TensorFlow를 활용해 훈련시켰으며, 백엔드와의 원활한 API 통신을 통해 실시간 예측 결과를 프론트에 전달하는 파이프라인을 설계했습니다."
+      background: "반려동물 가구가 증가함에 따라, 시간과 장소에 구애받지 않고 반려견의 건강 상태를 체크하고 조언을 얻을 수 있는 AI 기반 플랫폼을 기획했습니다.",
+      architecture: "Node.js/Express 백엔드를 중심으로 React 프론트엔드와 Python AI 서버가 협업하는 구조입니다. 카카오맵 API를 연동하여 주변 동물병원 정보를 제공하며, AI 서버는 Docker 환경에서 Ollama와 TensorFlow 모델을 구동합니다.",
+      techDetails: "3인 팀 프로젝트에서 백엔드 주개발자로서 Node.js와 MySQL을 이용해 전체 서비스 로직을 설계했습니다. 12,000여 개의 의료 데이터를 활용한 AI 모델을 백엔드에 통합하기 위해 실시간 API 통신 파이프라인을 구축했습니다. 또한, 반려견 일지 기록 기능과 커뮤니티 기능을 구현했으며, 프론트엔드 개발이 처음인 팀원을 도와 React 컴포넌트 구조 설계 및 상태 관리 로직을 함께 구현하여 프로젝트의 완성도를 높였습니다."
     }
   },
   {
@@ -107,6 +111,9 @@ export const projects = [
     badge: "외주 개발",
     badgeType: "secondary",
     role: "풀스택 리뉴얼 및 시스템 마이그레이션 전담",
+    links: [
+      { name: "쿠키어학원", url: "https://cookie.english.co.kr/index/index.php" },
+    ],
     detailedAnalysis: {
       background: "기존 .NET 기반의 ASP, ASPX 페이지들이 노후화되어 유지보수가 어렵고 UI가 낙후된 상태였습니다. 이를 현대적인 웹 환경으로 리뉴얼하여 운영 효율성을 높이고, 콘텐츠 관리의 편의성을 확보하는 것이 핵심 과제였습니다.",
       architecture: "기존 .NET 환경의 비즈니스 로직을 분석하여 PHP 환경으로 재구축하는 마이그레이션을 수행했습니다. 특히 프론트엔드는 jQuery AJAX를 활용해 비동기 데이터 통신을 강화하여 사용자 경험을 현대화했습니다.",
@@ -158,6 +165,9 @@ export const projects = [
     badge: "해커톤",
     badgeType: "primary",
     role: "프론트엔드 총괄 및 인터페이스 최적화",
+    links: [
+      { name: "GitHub", url: "https://github.com/2025Chungnamthon/2025_CHUNGNAM_TEAM_6_FE" },
+    ],
     detailedAnalysis: {
       background: "천안 지역 소상공인 상권 활성화를 위해 기획되었으나, 무박 2일의 짧은 일정과 한정된 백엔드 개발 리소스로 인해 실시간 데이터 연동 과정에서 병목 현상이 발생했습니다.",
       architecture: "React를 기반으로 Kakao Map SDK를 통합했으며, 서버 측의 부하를 줄이고 빠른 프로토타이핑을 위해 프론트엔드 중심의 아키텍처를 설계했습니다.",
@@ -175,6 +185,9 @@ export const projects = [
     badge: "해커톤",
     badgeType: "primary",
     role: "백엔드 및 서버 총괄",
+    links: [
+      { name: "GitHub", url: "https://github.com/9oormthonUNIV-HOSEO-AISW-HACKATHON/2025_AISW_HOSEOTHON_TEAM_06_BE" },
+    ],
     detailedAnalysis: {
       background: "서로 다른 세대가 사용하는 단어의 차이를 게임으로 풀어내 소통을 돕고자 기획되었으며, 실시간 연동이 중요한 멀티플레이 요소가 포함된 프로젝트였습니다.",
       architecture: "Spring Boot 백엔드와 MS Azure DB를 연동하고, 대회 측에서 제공한 Windows 서버를 활용해 외부 서비스가 가능한 배포 환경을 구축했습니다.",
@@ -209,6 +222,9 @@ export const projects = [
     badge: "대상",
     badgeType: "accent",
     role: "개인 참가 (전체 1위)",
+    links: [
+      { name: "수상 명단", url: "https://community.bu.ac.kr/info/1794/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaW5mbyUyRjkwMyUyRjQ5Njg5JTJGYXJ0Y2xWaWV3LmRvJTNG" }
+    ],
     detailedAnalysis: {
       background: "컴퓨터 구조에 대한 깊은 이해를 바탕으로, 가장 로우 레벨 언어인 C언어를 통해 효율적인 알고리즘 설계 역량을 증명하고자 참가했습니다.",
       architecture: "복잡한 데이터 연산 시 발생하는 메모리 병목 현상을 최소화하기 위해 사용자 정의 구조체와 효율적인 인덱싱 알고리즘을 결합한 최적화 아키텍처를 적용했습니다.",

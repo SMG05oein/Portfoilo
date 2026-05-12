@@ -25,15 +25,15 @@ const TechArticle = () => {
   }
 
   return (
-    <div className="page-container" style={{ paddingBottom: 'var(--space-xl)' }}>
+    <div className="page-container" style={{ paddingTop: '80px', paddingBottom: 'var(--space-xl)' }}>
       {/* Header Banner */}
-      <div style={{ position: 'relative', height: '400px', width: '100%', marginBottom: '3rem', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', height: '550px', width: '100%', marginBottom: '3rem', overflow: 'hidden' }}>
         <img
           src={`${process.env.PUBLIC_URL}${article.thumbnail}`}
           alt={article.title}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.6)' }}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.65)' }}
         />
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8))' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.85))' }}></div>
 
         <div className="container" style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
           <div className="d-flex align-items-center justify-content-center mb-3">
