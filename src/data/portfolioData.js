@@ -74,8 +74,8 @@ export const projects = [
     badgeType: "primary",
     role: "임베디드 아키텍처 및 데이터 파이프라인 설계",
     detailedAnalysis: {
-      background: "기존 홈캠의 사생활 침해 문제를 해결하기 위해 '영상 전송 없는 모니터링'이라는 컨셉으로 기획되었습니다.",
-      architecture: "라즈베리파이에서 수집된 영상을 로컬에서 즉시 분석 후, 위급 상황 발생 시에만 익명화된 텍스트 데이터와 디지털 서명을 전송하는 구조입니다.",
+      background: "기존 홈캠의 사생활 침해 문제를 해결하기 위해 '서버로 원본 영상을 전송하지 않는 모니터링'이라는 컨셉으로 기획되었습니다.",
+      architecture: "라즈베리파이에서 수집된 영상을 로컬에서 즉시 분석 후, 위급 상황 발생 시에만 텍스트 데이터와 암호화/마스킹된 영상을 디지털 서명과 함께 서버에 전송하는 구조입니다.",
       techDetails: "효율적인 리소스 관리를 위해 Python Multi-threading을 도입하여 영상 처리와 데이터 송수신을 분리했습니다. 또한 디지털 서명 기술을 적용해 데이터 위변조를 방지하는 등 무결성을 확보했습니다."
     }
   },
@@ -84,20 +84,20 @@ export const projects = [
     category: "in-school",
     title: "멍멍케어 (반려견 AI 수의사 플랫폼)",
     period: "2025.11 ~ 2025.12.05",
-    description: "반려견을 위한 건강 케어 및 정보 공유 플랫폼. 12,000여 개의 의료 데이터를 학습한 AI 수의사 서비스와 반려견 일지, 커뮤니티 기능을 제공합니다.",
+    description: "반려견을 위한 AI 건강 케어 및 정보 공유 플랫폼. EXAONE 3.5 모델 기반의 AI 수의사 상담, 음성 인터페이스(STT/TTS), 커뮤니티 및 병원 검색 기능을 제공합니다.",
     image: "/images/pet_care_app.png",
-    technologies: ["Node.js", "Express", "React", "MySQL", "Docker", "Ollama", "Python", "TensorFlow"],
+    technologies: ["React", "Node.js", "FastAPI", "MySQL", "Ollama (EXAONE 3.5)", "Whisper STT", "Docker"],
     badge: "장려상 (팀 서사이)",
     badgeType: "accent",
-    role: "백엔드 개발 및 프론트엔드 서포트 (3인 팀 프로젝트)",
+    role: "백엔드 개발 총괄 및 프론트엔드 서포트",
     links: [
       { name: "GitHub", url: "https://github.com/SMG05oein/smart_it" },
       { name: "수상 명단", url: "https://community.bu.ac.kr/info/1793/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaW5mbyUyRjkwMiUyRjU0MTA4JTJGYXJ0Y2xWaWV3LmRvJTNGcGFnZSUzRDElMjZzcmNoQ29sdW1uJTNEJTI2c3JjaFdyZCUzRCUyNmJic0NsU2VxJTNEJTI2YmJzT3BlbldyZFNlcSUzRCUyNnJnc0JnbmRlU3RyJTNEJTI2cmdzRW5kZGVTdHIlM0QlMjZpc1ZpZXdNaW5lJTNEZmFsc2UlMjZwYXNzd29yZCUzRCUyNg%3D%3D" }
     ],
     detailedAnalysis: {
-      background: "반려동물 가구가 증가함에 따라, 시간과 장소에 구애받지 않고 반려견의 건강 상태를 체크하고 조언을 얻을 수 있는 AI 기반 플랫폼을 기획했습니다.",
-      architecture: "Node.js/Express 백엔드를 중심으로 React 프론트엔드와 Python AI 서버가 협업하는 구조입니다. 카카오맵 API를 연동하여 주변 동물병원 정보를 제공하며, AI 서버는 Docker 환경에서 Ollama와 TensorFlow 모델을 구동합니다.",
-      techDetails: "3인 팀 프로젝트에서 백엔드 주개발자로서 Node.js와 MySQL을 이용해 전체 서비스 로직을 설계했습니다. 12,000여 개의 의료 데이터를 활용한 AI 모델을 백엔드에 통합하기 위해 실시간 API 통신 파이프라인을 구축했습니다. 또한, 반려견 일지 기록 기능과 커뮤니티 기능을 구현했으며, 프론트엔드 개발이 처음인 팀원을 도와 React 컴포넌트 구조 설계 및 상태 관리 로직을 함께 구현하여 프로젝트의 완성도를 높였습니다."
+      background: "반려동물 가구의 급격한 증가에 대응하여, 전문 수의사 상담 전 1차적인 건강 가이드를 제공하고 보호자 간의 정보를 공유하는 통합 케어 솔루션을 목표로 했습니다.",
+      architecture: "Node.js(Express) 서버가 전체 서비스의 중심 역할을 하며, MySQL 데이터베이스를 통해 사용자 정보, 반려견 일지, 커뮤니티 데이터를 관리합니다. 외부 AI 서버(FastAPI)와의 API 통신을 통해 AI 상담 기능을 프론트엔드에 전달하는 구조입니다.",
+      techDetails: "백엔드 주개발자로서 Node.js와 MySQL을 활용해 전체 서비스 아키텍처를 설계하고 구축했습니다. 특히 반려견의 일상 기록을 위한 '반려견 일지' 기능과 사용자 간 정보 공유를 위한 '커뮤니티 게시판'의 DB 스키마 및 API를 전담하여 개발했습니다. 또한, AI 서버에서 처리된 분석 결과가 사용자에게 지연 없이 전달될 수 있도록 비동기 통신 파이프라인을 구성했습니다. 프론트엔드 개발에서는 React 컴포넌트 구조 설계 및 상태 관리 로직을 지원하여 프로젝트의 완성도를 높이는 데 기여했습니다."
     }
   },
   {
@@ -159,19 +159,19 @@ export const projects = [
     category: "extracurricular",
     title: "카카오 구름톤: 충남권 소상공인 지도 서비스",
     period: "2025.07.28 ~ 2025.07.29",
-    description: "제1회 충남권 연합 해커톤 참가작. Kakao Map API를 활용한 가맹점 위치 기반 서비스입니다. 백엔드 리소스가 부족한 상황에서 프론트엔드 프록시 설정을 통해 통신 이슈를 주도적으로 해결했습니다.",
+    description: "제1회 충남권 연합 해커톤 참가작. 천안 지역 소상공인 상권 활성화를 위한 위치 기반 지도 서비스. 토스페이먼츠 SDK 연동을 통한 결제 기능과 QR 스캔 기능을 제공합니다.",
     image: "/images/local_map_app.png",
-    technologies: ["React", "React Kakao Map API", "http-proxy-middleware", "Bootstrap"],
+    technologies: ["React", "TanStack Query", "Toss Payments SDK", "React Kakao Map API", "Netlify Functions"],
     badge: "해커톤",
     badgeType: "primary",
-    role: "프론트엔드 총괄 및 인터페이스 최적화",
+    role: "프론트엔드 총괄 및 아키텍처 설계",
     links: [
       { name: "GitHub", url: "https://github.com/2025Chungnamthon/2025_CHUNGNAM_TEAM_6_FE" },
     ],
     detailedAnalysis: {
-      background: "천안 지역 소상공인 상권 활성화를 위해 기획되었으나, 무박 2일의 짧은 일정과 한정된 백엔드 개발 리소스로 인해 실시간 데이터 연동 과정에서 병목 현상이 발생했습니다.",
-      architecture: "React를 기반으로 Kakao Map SDK를 통합했으며, 서버 측의 부하를 줄이고 빠른 프로토타이핑을 위해 프론트엔드 중심의 아키텍처를 설계했습니다.",
-      techDetails: "개발 과정 중 백엔드 인력 부족으로 인해 API 서버의 CORS(Cross-Origin Resource Sharing) 이슈 해결이 지연되는 상황을 맞이했습니다. 프로젝트 완수를 위해 직군의 경계를 넘어 프론트엔드 레벨에서 해결 가능한 대안을 모색했고, http-proxy-middleware를 활용한 프록시 서버 설정을 주도적으로 구현했습니다. 결과적으로 서버 측 수정 없이도 통신 이슈를 해결하여 팀의 개발 속도를 정상화하고 최종 시연을 성공시켰습니다."
+      background: "지역 경제 활성화를 목표로 '천안사랑카드' 가맹점 정보를 직관적으로 제공하고, 현장에서 즉시 결제까지 이어지는 원스톱 로컬 커머스 환경을 기획했습니다.",
+      architecture: "React 환경에서 TanStack Query를 도입해 지도 데이터의 캐싱 및 동기화를 최적화했습니다. 백엔드 서버의 CORS 이슈를 해결하기 위해 Netlify Functions를 이용한 서버리스 프록시 계층을 구축하여 안정적인 데이터 통신을 확보했습니다.",
+      techDetails: "토스페이먼츠(Toss Payments) SDK를 연동하여 가맹점별 간편 결제 시스템을 구축했으며, html5-qrcode를 활용해 매장 내 비치된 QR 코드를 즉시 스캔하여 정보를 조회하는 기능을 구현했습니다. Swiper 라이브러리를 사용해 모바일 최적화된 UX를 제공하고, 가맹점 카테고리별 필터링 시스템을 구축하여 탐색 효율성을 극대화했습니다."
     }
   },
   {
@@ -179,19 +179,19 @@ export const projects = [
     category: "extracurricular",
     title: "카카오 구름톤: 세대간 단어 갭 줄이기 카드 게임",
     period: "2025.11.22 ~ 2025.11.23",
-    description: "전남/충남 연합 해커톤 참가작. 세대 간 언어 장벽을 허무는 단어 학습 카드 게임. 원격 데스크톱(RDP) 환경에서의 서버 배포 및 CORS 이슈 해결을 통해 시스템을 구축했습니다.",
+    description: "전남/충남 연합 해커톤 참가작. 세대 간 언어 격차(MZ vs Older)를 해소하기 위한 퀴즈 기반 카드 게임. 실시간 세대별 정답률 통계와 포인트 시스템을 제공하는 백엔드 솔루션입니다.",
     image: "/images/card_game_app.png",
-    technologies: ["Spring Boot", "Swagger", "MS Azure", "Remote Desktop (RDP)", "CORS"],
+    technologies: ["Spring Boot 3", "Java 21", "MySQL (JPA)", "Spring Security & JWT", "Swagger"],
     badge: "해커톤",
     badgeType: "primary",
-    role: "백엔드 및 서버 총괄",
+    role: "백엔드 시스템 설계 및 인프라 구축",
     links: [
       { name: "GitHub", url: "https://github.com/9oormthonUNIV-HOSEO-AISW-HACKATHON/2025_AISW_HOSEOTHON_TEAM_06_BE" },
     ],
     detailedAnalysis: {
-      background: "서로 다른 세대가 사용하는 단어의 차이를 게임으로 풀어내 소통을 돕고자 기획되었으며, 실시간 연동이 중요한 멀티플레이 요소가 포함된 프로젝트였습니다.",
-      architecture: "Spring Boot 백엔드와 MS Azure DB를 연동하고, 대회 측에서 제공한 Windows 서버를 활용해 외부 서비스가 가능한 배포 환경을 구축했습니다.",
-      techDetails: "대회 측 제공 윈도우 서버 환경에서 백엔드 배포를 위해 원격 데스크톱(RDP)을 활용하여 환경을 설정했습니다. 특히 네트워크 보안 정책으로 인한 접속 제한을 해결하기 위해 학교 관리자와 직접 소통하여 필요한 포트를 확보받았으며, 서로 다른 도메인 간 통신 시 발생하는 CORS(Cross-Origin Resource Sharing) 에러를 Spring Security 설정을 통해 해결하여 프론트엔드와의 안정적인 데이터 교환을 성공시켰습니다. 제한된 시간 내에 인프라 제약을 극복하고 시연 가능한 라이브 서버를 구축한 경험입니다."
+      background: "급격한 언어 변화로 발생하는 세대 간 소통 단절을 '게임'이라는 매개체로 해결하고자 했으며, 정답 데이터를 분석하여 세대별 인식 차이를 가시화하는 것에 중점을 두었습니다.",
+      architecture: "Spring Boot 3와 Java 21 기반의 견고한 REST API를 설계했습니다. 세대별 통계 데이터를 효율적으로 집계하기 위해 QueryDSL 대신 JPA 엔티티 내 집계 로직을 최적화했으며, JWT 기반의 무상태 인증 체계를 도입해 보안성을 확보했습니다.",
+      techDetails: "사용자의 세대 정보(MZ 여부)를 기반으로 퀴즈 정답률을 실시간으로 집계하는 알고리즘을 구현했습니다. 특히 검색 빈도가 높은 'Top 3 단어' 랭킹 시스템을 구축하여 실시간 트렌드를 반영했습니다. 인프라 측면에서는 MS Azure 환경에서 데이터베이스를 운용하고, 개발 과정에서의 CORS 이슈를 Spring Security 설정을 통해 유연하게 대응하여 Vercel에 배포된 프론트엔드와의 완벽한 협업 환경을 조성했습니다."
     }
   },
   {
