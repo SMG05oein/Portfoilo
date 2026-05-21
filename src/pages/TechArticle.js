@@ -105,6 +105,15 @@ const TechArticle = () => {
                     </div>
                   ),
                   th: ({ node, ...props }) => <th {...props} />,
+                  img: ({ node, src, ...props }) => (
+                    <div className="text-center my-4">
+                      <img
+                        src={src.startsWith('/') ? `${process.env.PUBLIC_URL}${src}` : src}
+                        style={{ maxWidth: '70%', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.15)' }}
+                        {...props}
+                      />
+                    </div>
+                  ),
                   code({ node, inline, className, children, ...props }) {
                     const match = /language-(\w+)/.exec(className || '')
                     return !inline && match ? (
