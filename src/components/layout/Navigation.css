@@ -26,10 +26,12 @@
 
 .nav-link {
   color: var(--color-text-main);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.95rem;
   position: relative;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: all var(--transition-fast);
 }
 
 .nav-link::after {
@@ -39,8 +41,8 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--color-primary);
-  transition: width var(--transition-fast);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  transition: width var(--transition-normal);
 }
 
 .nav-link:hover::after,
@@ -48,9 +50,14 @@
   width: 100%;
 }
 
-.nav-link:hover,
+.nav-link:hover {
+  color: var(--color-primary);
+  background: rgba(56, 189, 248, 0.1);
+}
+
 .nav-link.active {
-  color: var(--color-text-main);
+  color: var(--color-primary);
+  background: rgba(56, 189, 248, 0.08);
 }
 
 /* Mobile Menu Button */

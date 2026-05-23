@@ -58,6 +58,19 @@ const Navigation = () => {
     { name: '기술 분석', path: '/tech-analysis' }
   ];
 
+  // 현재 경로가 활성 링크인지 판단하는 함수
+  const isActiveLink = (linkPath) => {
+    const currentPath = location.pathname;
+    
+    // 홈 페이지는 정확히 일치해야 함
+    if (linkPath === '/') {
+      return currentPath === '/';
+    }
+    
+    // 다른 페이지는 기본 경로로 시작하면 활성화 (상세 페이지도 포함)
+    return currentPath === linkPath || currentPath.startsWith(linkPath + '/');
+  };
+
   return (
     <nav className={`navigation glass-panel ${isScrolled ? 'nav-scrolled' : ''}`} style={{ borderRadius: 0, borderTop: 0, borderLeft: 0, borderRight: 0 }}>
       <div className="container d-flex justify-content-between align-items-center">
@@ -71,7 +84,7 @@ const Navigation = () => {
             <Link 
               key={link.path} 
               to={link.path}
-              className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+              className={`nav-link ${isActiveLink(link.path) ? 'active' : ''}`}
             >
               {link.name}
             </Link>
@@ -136,7 +149,7 @@ const Navigation = () => {
             <Link 
               key={link.path} 
               to={link.path}
-              className={`mobile-nav-link ${location.pathname === link.path ? 'active' : ''}`}
+              className={`mobile-nav-link ${isActiveLink(link.path) ? 'active' : ''}`}
             >
               {link.name}
             </Link>

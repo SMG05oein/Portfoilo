@@ -1,18 +1,24 @@
 .skill-item {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
+  background: var(--color-surface);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
   border: 1px solid var(--color-border);
-  font-weight: 500;
-  transition: all var(--transition-fast);
+  font-weight: 600;
+  transition: all var(--transition-normal);
   color: var(--color-text-main);
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
 }
 
 .skill-item:hover {
-  background: rgba(56, 189, 248, 0.1);
-  border-color: rgba(56, 189, 248, 0.5);
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.1));
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
   color: var(--color-primary);
+  box-shadow: var(--shadow-glow);
 }
 
 .border-secondary {
