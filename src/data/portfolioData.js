@@ -50,14 +50,19 @@ export const awards = [
 
 export const certifications = [
   {
-    name: "고용노동부 주관 구글 AI 관련 학습 인증서",
+    name: "AI Fundamentals 수료",
     issuer: "고용노동부 / 구글",
-    date: "취득 완료"
+    date: "2026.05.30"
   },
   {
     name: "스프링 핵심 원리 (기본편) 수료",
     issuer: "인프런 (김영환)",
-    date: "수료 완료"
+    date: "2025.08.28"
+  },
+  {
+    name: "Google AI Essentials 전문 과정",
+    issuer: "고용노동부 / 구글",
+    date: "2025.08.18"
   }
 ];
 
