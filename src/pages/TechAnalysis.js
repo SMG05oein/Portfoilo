@@ -13,12 +13,15 @@ const TechAnalysis = () => {
   }, []);
 
   const filteredArticles = useMemo(() => {
-    return techArticles.filter(article => {
+    const filtered = techArticles.filter(article => {
       const matchCategory = selectedCategory === 'All' || article.category === selectedCategory;
       const matchSearch = article.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                           article.summary.toLowerCase().includes(searchTerm.toLowerCase());
       return matchCategory && matchSearch;
     });
+    
+    // 최신순(내림차순) 정렬
+    return filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
   }, [searchTerm, selectedCategory]);
 
   return (
@@ -94,56 +97,70 @@ const TechAnalysis = () => {
           </div>
         </div>
 
-        <div className="row justify-content-center">
-          <div className="col-12 col-lg-10">
-            {filteredArticles.length > 0 ? (
-              filteredArticles.map((article) => (
+        <div className="row g-4">
+          {filteredArticles.length > 0 ? (
+            filteredArticles.map((article) => (
+              <div className="col-12 col-md-6 col-xl-4" key={article.id}>
                 <Link 
                   to={`/tech-analysis/${article.id}`} 
-                  key={article.id}
-                  className="text-decoration-none"
+                  className="text-decoration-none h-100 d-block"
                 >
                   <div 
-                    className="glass-panel p-0 mb-4 overflow-hidden d-flex flex-column flex-md-row"
-                    style={{ transition: 'transform 0.2s ease, box-shadow 0.2s ease', cursor: 'pointer' }}
+                    className="glass-panel p-0 h-100 overflow-hidden d-flex flex-column"
+                    style={{ transition: 'transform 0.3s ease, box-shadow 0.3s ease', cursor: 'pointer', border: '1px solid var(--color-border)' }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.transform = 'translateY(-8px)';
                       e.currentTarget.style.boxShadow = 'var(--shadow-glow)';
+                      e.currentTarget.style.borderColor = 'var(--color-primary)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'translateY(0)';
                       e.currentTarget.style.boxShadow = 'none';
+                      e.currentTarget.style.borderColor = 'var(--color-border)';
                     }}
                   >
-                    <div className="col-md-4 p-0">
+                    <div className="card-img-wrapper" style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
                       <img 
                         src={`${process.env.PUBLIC_URL}${article.thumbnail}`} 
                         alt={article.title} 
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '200px' }}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                        onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                        onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                       />
-                    </div>
-                    <div className="col-md-8 p-4 d-flex flex-column justify-content-center">
-                      <div className="d-flex align-items-center mb-2">
-                        <span className="badge bg-primary me-2" style={{ background: 'var(--color-primary) !important', color: '#000' }}>{article.category}</span>
-                        <small style={{ color: 'var(--color-secondary)', fontWeight: '600' }}>직접 정리 및 분석</small>
+                      <div style={{ position: 'absolute', top: '10px', right: '10px' }}>
+                        <span className="badge rounded-pill" style={{ background: 'rgba(0,0,0,0.7)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', padding: '0.4rem 0.8rem' }}>
+                          {article.date}
+                        </span>
                       </div>
-                      <h3 className="mb-3" style={{ color: 'var(--color-text-main)', fontWeight: '600', fontSize: '1.4rem' }}>{article.title}</h3>
-                      <p style={{ color: 'var(--color-text-muted)', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                    </div>
+                    <div className="p-4 d-flex flex-column flex-grow-1">
+                      <div className="mb-2">
+                        <span className="badge" style={{ background: 'rgba(56, 189, 248, 0.15)', color: 'var(--color-primary)', border: '1px solid var(--color-primary)', fontSize: '0.8rem', padding: '0.4rem 0.8rem' }}>
+                          {article.category}
+                        </span>
+                      </div>
+                      <h3 className="mb-3" style={{ color: 'var(--color-text-main)', fontWeight: '700', fontSize: '1.25rem', lineHeight: '1.4', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                        {article.title}
+                      </h3>
+                      <p className="mb-4" style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: '1.6', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', flexGrow: 1 }}>
                         {article.summary}
                       </p>
-                      <div className="mt-2" style={{ color: 'var(--color-secondary)', fontWeight: '500' }}>
-                        자세히 읽기 &rarr;
+                      <div className="mt-auto d-flex align-items-center justify-content-between" style={{ borderTop: '1px solid var(--color-border)', paddingTop: '1rem' }}>
+                        <span style={{ color: 'var(--color-secondary)', fontWeight: '600', fontSize: '0.9rem' }}>자세히 읽기 &rarr;</span>
+                        <span style={{ color: 'var(--color-text-muted)', fontSize: '0.8rem' }}>직접 분석</span>
                       </div>
                     </div>
                   </div>
                 </Link>
-              ))
-            ) : (
+              </div>
+            ))
+          ) : (
+            <div className="col-12">
               <div className="text-center py-5 glass-panel">
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', margin: 0 }}>검색 결과가 없습니다.</p>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

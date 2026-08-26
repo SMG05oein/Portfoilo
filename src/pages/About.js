@@ -4,6 +4,27 @@ import { skills, personalInfo, awards, certifications } from '../data/portfolioD
 import { FaBolt, FaBullseye, FaTrophy, FaCertificate } from 'react-icons/fa';
 import './About.css';
 
+const ScrollableSection = ({ titleComponent, children }) => {
+  const scrollRef = React.useRef(null);
+  const scroll = (offset) => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: offset, behavior: 'smooth' });
+  };
+  return (
+    <div className="mb-4">
+      <div className="d-flex justify-content-between align-items-end mb-2">
+        {titleComponent}
+        <div className="d-flex gap-2 mb-1">
+          <button onClick={() => scroll(-250)} className="scroll-btn" aria-label="이전">‹</button>
+          <button onClick={() => scroll(250)} className="scroll-btn" aria-label="다음">›</button>
+        </div>
+      </div>
+      <div ref={scrollRef} className="skills-container pb-2 pt-1">
+        {children}
+      </div>
+    </div>
+  );
+};
+
 const About = () => {
   return (
     <div className="page-container">
@@ -28,7 +49,7 @@ const About = () => {
                 <div className="mb-3">
                   <h5 style={{ color: 'var(--color-primary)', fontWeight: '600' }}><FaBolt className="me-2" style={{ verticalAlign: 'text-bottom' }} />핵심 기술 역량 (Core Stack)</h5>
                   <p style={{ color: 'var(--color-text-main)', fontSize: '1rem', fontWeight: '500' }}>
-                    <span style={{ color: 'var(--color-primary)' }}>React</span>와 <span style={{ color: 'var(--color-secondary)' }}>Spring Boot</span>, <span style={{ color: 'var(--color-accent)' }}>MySQL</span>을 주력으로 사용하며, 안정적인 풀스택 시스템 아키텍처를 구축합니다.
+                    교내 프로젝트 및 해커톤에서는 <span style={{ color: 'var(--color-primary)' }}>React</span>, <span style={{ color: 'var(--color-secondary)' }}>Spring Boot</span>, <span style={{ color: 'var(--color-accent)' }}>MySQL</span>을 주력으로 사용하며, 현재 엠씨네 외주 개발 실무에서는 <span style={{ color: '#8892BF' }}>PHP</span>를 기반으로 시스템을 구축 및 운영하고 있습니다.
                   </p>
                   <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem' }}>
                     나아가 하드웨어(아두이노, 라즈베리파이) 및 AI 모델링(Ollama)까지 문제 해결에 필요한 기술을 두려움 없이 습득하고 실무에 즉시 적용합니다.
@@ -47,9 +68,9 @@ const About = () => {
               <h2 className="mb-4">보유 기술 (Tech Stack)</h2>
 
               {/* Core Expertise Highlight */}
-              <div className="mb-5">
-                <h6 style={{ color: 'var(--color-primary)', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '800' }}>Main Stack</h6>
-                <div className="skills-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+              <ScrollableSection 
+                titleComponent={<h6 style={{ color: 'var(--color-primary)', marginBottom: 0, textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '800' }}>Main Stack</h6>}
+              >
                   <div className="skill-item" style={{
                     padding: '0.8rem 1.5rem',
                     fontSize: '1.1rem',
@@ -77,44 +98,48 @@ const About = () => {
                     color: 'var(--color-accent)',
                     boxShadow: '0 0 15px rgba(251, 191, 36, 0.2)'
                   }}>MySQL</div>
-                </div>
-              </div>
+                  <div className="skill-item" style={{
+                    padding: '0.8rem 1.5rem',
+                    fontSize: '1.1rem',
+                    fontWeight: '700',
+                    border: '2px solid #8892BF',
+                    background: 'rgba(136, 146, 191, 0.15)',
+                    color: '#8892BF',
+                    boxShadow: '0 0 15px rgba(136, 146, 191, 0.2)'
+                  }}>PHP</div>
+              </ScrollableSection>
 
-              <div className="mb-4">
-                <h6 style={{ color: 'var(--color-text-muted)', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.8rem' }}>Frontend</h6>
-                <div className="skills-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+              <ScrollableSection 
+                titleComponent={<h6 style={{ color: 'var(--color-text-muted)', marginBottom: 0, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.8rem' }}>Frontend</h6>}
+              >
                   {skills.frontend.map((skill, index) => (
                     <div key={index} className="skill-item">{skill.name}</div>
                   ))}
-                </div>
-              </div>
+              </ScrollableSection>
 
-              <div className="mb-4">
-                <h6 style={{ color: 'var(--color-text-muted)', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.8rem' }}>Backend</h6>
-                <div className="skills-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+              <ScrollableSection 
+                titleComponent={<h6 style={{ color: 'var(--color-text-muted)', marginBottom: 0, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.8rem' }}>Backend</h6>}
+              >
                   {skills.backend.map((skill, index) => (
                     <div key={index} className="skill-item">{skill.name}</div>
                   ))}
-                </div>
-              </div>
+              </ScrollableSection>
 
-              <div className="mb-4">
-                <h6 style={{ color: 'var(--color-text-muted)', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.8rem' }}>Database</h6>
-                <div className="skills-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+              <ScrollableSection 
+                titleComponent={<h6 style={{ color: 'var(--color-text-muted)', marginBottom: 0, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.8rem' }}>Database</h6>}
+              >
                   {skills.database.map((skill, index) => (
                     <div key={index} className="skill-item">{skill.name}</div>
                   ))}
-                </div>
-              </div>
+              </ScrollableSection>
 
-              <div className="mb-2">
-                <h6 style={{ color: 'var(--color-text-main)', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px' }}>AI & Hardware</h6>
-                <div className="skills-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+              <ScrollableSection 
+                titleComponent={<h6 style={{ color: 'var(--color-text-main)', marginBottom: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>AI & Hardware</h6>}
+              >
                   {skills.ai_hardware.map((skill, index) => (
                     <div key={index} className="skill-item">{skill.name}</div>
                   ))}
-                </div>
-              </div>
+              </ScrollableSection>
 
             </div>
           </div>
@@ -122,52 +147,60 @@ const About = () => {
 
         {/* Awards and Certifications Section */}
         <div className="row mt-5">
-          <div className="col-lg-6 mb-5 mb-lg-0">
-            <div className="glass-panel p-4 h-100">
-              <h2 className="mb-4 d-flex align-items-center">
-                <FaTrophy className="me-2" style={{ color: 'var(--color-primary)', verticalAlign: 'baseline' }} /> 수상 경력
-              </h2>
-              <div className="list-group list-group-flush bg-transparent">
+          <div className="col-12 mb-4">
+            <div className="glass-panel p-4">
+              <ScrollableSection 
+                titleComponent={
+                  <h2 className="mb-0 d-flex align-items-center">
+                    <FaTrophy className="me-2" style={{ color: 'var(--color-primary)', verticalAlign: 'baseline' }} /> 수상 경력
+                    <span className="badge rounded-pill ms-3" style={{ backgroundColor: 'var(--color-primary)', color: '#fff', fontSize: '1.1rem', verticalAlign: 'middle' }}>총 {awards.length}개</span>
+                  </h2>
+                }
+              >
                 {awards.map((award, index) => (
-                  <div key={index} className="list-group-item bg-transparent border-bottom border-secondary p-3">
-                    <div className="d-flex w-100 justify-content-between align-items-center mb-1">
+                  <div key={index} className="scroll-card">
+                    <div>
                       {award.projectId ? (
                         <Link
                           to={`/projects/${award.projectId}`}
                           style={{ textDecoration: 'none' }}
                         >
-                          <h5 className="mb-0" style={{ fontWeight: '600', color: 'var(--color-primary)' }}>
-                            {award.title} <span style={{ fontSize: '0.8rem', verticalAlign: 'middle' }}>↗</span>
+                          <h5 className="mb-3" style={{ fontWeight: '600', color: 'var(--color-primary)' }}>
+                            {award.title} <span style={{ fontSize: '0.9rem', verticalAlign: 'middle' }}>↗</span>
                           </h5>
                         </Link>
                       ) : (
-                        <h5 className="mb-0" style={{ fontWeight: '600', color: 'var(--color-text-main)' }}>{award.title}</h5>
+                        <h5 className="mb-3" style={{ fontWeight: '600', color: 'var(--color-text-main)' }}>{award.title}</h5>
                       )}
-                      <span className="badge bg-primary rounded-pill text-dark" style={{ background: 'var(--color-primary) !important' }}>{award.award}</span>
+                      <span className="badge rounded-pill text-dark mb-3 px-3 py-2" style={{ background: 'var(--color-primary)' }}>{award.award}</span>
                     </div>
-                    <small style={{ color: 'var(--color-text-muted)' }}>{award.date}</small>
+                    <small style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>{award.date}</small>
                   </div>
                 ))}
-              </div>
+              </ScrollableSection>
             </div>
           </div>
 
-          <div className="col-lg-6">
-            <div className="glass-panel p-4 h-100">
-              <h2 className="mb-4 d-flex align-items-center">
-                <FaCertificate className="me-2" style={{ color: 'var(--color-primary)', verticalAlign: 'baseline' }} /> 교육 및 수료
-              </h2>
-              <div className="list-group list-group-flush bg-transparent">
+          <div className="col-12">
+            <div className="glass-panel p-4">
+              <ScrollableSection 
+                titleComponent={
+                  <h2 className="mb-0 d-flex align-items-center">
+                    <FaCertificate className="me-2" style={{ color: 'var(--color-secondary)', verticalAlign: 'baseline' }} /> 교육 및 수료
+                    <span className="badge rounded-pill ms-3" style={{ backgroundColor: 'var(--color-secondary)', color: '#fff', fontSize: '1.1rem', verticalAlign: 'middle' }}>총 {certifications.length}개</span>
+                  </h2>
+                }
+              >
                 {certifications.map((cert, index) => (
-                  <div key={index} className="list-group-item bg-transparent border-bottom border-secondary p-3">
-                    <div className="d-flex w-100 justify-content-between mb-1">
-                      <h5 className="mb-0" style={{ fontWeight: '600', color: 'var(--color-text-main)' }}>{cert.name}</h5>
+                  <div key={index} className="scroll-card" style={{ minWidth: '320px' }}>
+                    <div>
+                      <h5 className="mb-2" style={{ fontWeight: '600', color: 'var(--color-text-main)' }}>{cert.name}</h5>
+                      <p className="mb-3 mt-3" style={{ color: 'var(--color-secondary)', fontWeight: '500' }}>{cert.issuer}</p>
                     </div>
-                    <p className="mb-1" style={{ color: 'var(--color-primary)' }}>{cert.issuer}</p>
-                    <small style={{ color: 'var(--color-text-muted)' }}>{cert.date}</small>
+                    <small style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>{cert.date}</small>
                   </div>
                 ))}
-              </div>
+              </ScrollableSection>
             </div>
           </div>
         </div>

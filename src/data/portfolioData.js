@@ -70,18 +70,21 @@ export const projects = [
   {
     id: 1,
     category: "extracurricular",
-    title: "한이음: 프라이버시 보호형 홀몸 어르신 AI 알림 시스템",
-    period: "2026.04 ~ 진행 중",
-    description: "엣지 컴퓨팅 기반의 실시간 이상 징후 탐지 시스템. 카메라 영상을 서버로 전송하지 않고 기기 내부에서 처리하여 개인정보 유출을 원천 차단합니다.",
+    title: "꿀비: 엣지 CCTV 이상행동 탐지 시스템",
+    period: "2026.04 ~ 2026.07.31",
+    description: "Jetson Orin Nano 엣지 디바이스에서 동작하는 실시간 이상행동(폭력, 낙상, 밀집, 배회, 화재) 탐지 시스템입니다. 영상 원본을 서버로 전송하지 않고 엣지 단에서 경량화된 모델로 즉시 분석을 수행합니다.",
     image: "/images/ai_security_cam.png",
-    technologies: ["React", "FastAPI", "MySQL", "Raspberry Pi", "OpenCV"],
-    badge: "진행 중",
-    badgeType: "primary",
-    role: "임베디드 아키텍처 및 데이터 파이프라인 설계",
+    technologies: ["PyTorch", "Jetson Orin Nano", "YOLOv8", "ST-GCN", "Python", "REST API"],
+    badge: "외주 개발",
+    badgeType: "secondary",
+    role: "엣지 딥러닝 모델 통합 및 실시간 파이프라인 구축",
+    links: [
+      { name: "GitHub", url: "https://github.com/azure-B/ST-GCN-Multi" }
+    ],
     detailedAnalysis: {
-      background: "기존 홈캠의 사생활 침해 문제를 해결하기 위해 '서버로 원본 영상을 전송하지 않는 모니터링'이라는 컨셉으로 기획되었습니다.",
-      architecture: "라즈베리파이에서 수집된 영상을 로컬에서 즉시 분석 후, 위급 상황 발생 시에만 텍스트 데이터와 암호화/마스킹된 영상을 디지털 서명과 함께 서버에 전송하는 구조입니다.",
-      techDetails: "효율적인 리소스 관리를 위해 Python Multi-threading을 도입하여 영상 처리와 데이터 송수신을 분리했습니다. 또한 디지털 서명 기술을 적용해 데이터 위변조를 방지하는 등 무결성을 확보했습니다."
+      background: "기존 CCTV 관제 시스템의 중앙 서버 부하 문제와 사생활 침해 우려를 해결하기 위해, 엣지 환경에서 모든 영상 분석을 완결 짓고 확정된 위험 알림(JSON)만 서버로 전송하는 시스템을 기획했습니다.",
+      architecture: "관절 스켈레톤 기반 경량 ST-GCN(파라미터 24만 개) 모델을 통한 폭력·낙상 감지, YOLOv8 및 트래킹 알고리즘 기반의 밀집·배회·화재 감지 파이프라인을 병렬로 구성하여 한 프레임 내에서 5종 상황을 동시 판정합니다.",
+      techDetails: "제한된 엣지 환경(Jetson Orin Nano 8GB)에서 원활한 동작을 위해 전처리 및 추론을 최적화하여 5종 동시 구동 시 프레임당 7.2ms 지연, 메모리 1.9GB 점유율을 달성했습니다."
     }
   },
   {

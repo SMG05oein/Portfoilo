@@ -1,5 +1,6 @@
 import React from 'react';
 import { personalInfo } from '../../data/portfolioData';
+import buildInfo from '../../buildDate.json';
 
 const Footer = () => {
   return (
@@ -27,6 +28,11 @@ const Footer = () => {
           </div>
           <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', opacity: 0.7, margin: 0 }}>
             Designed & Developed by {personalInfo.name} with <span style={{ color: 'var(--color-primary)', fontWeight: '600' }}>Antigravity</span>
+          </p>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', marginTop: '0.5rem' }}>
+          <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', opacity: 0.6, margin: 0 }}>
+            마지막 업데이트: {buildInfo.lastUpdated}
           </p>
         </div>
       </div>
