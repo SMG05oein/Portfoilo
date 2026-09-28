@@ -1,9 +1,16 @@
 export const personalInfo = {
   name: "서민관",
-  role: "백석대학교 컴퓨터공학부 소프트웨어학 전공",
-  bio: "프론트엔드부터 백엔드, AI 및 임베디드 연동까지 아우르는 풀스택 역량을 키워가고 있습니다. 사용자에게 실질적인 가치를 제공하는 문제 해결에 열정을 가지고 있으며, 2024년 11월부터 현재까지 엠씨네에서 다양한 실무 외주 프로젝트를 수행하고 있습니다.",
+  role: "풀스택 엔지니어 & 현장 문제 해결",
+  subRole: "백석대학교 컴퓨터공학부 소프트웨어학 전공",
+  headline: "문제를 발견하면 기술의 경계 없이 직접 만들어 검증하고 배포합니다.",
+  bio: "현장의 불편함을 직시하고, React·Spring Boot 풀스택 아키텍처와 AI/하드웨어 연동을 통해 실질적인 솔루션을 만듭니다. 실제 근무 환경의 비효율을 해결한 '노란돼지' 근무관리 웹앱 현장 도입부터 엠씨네 실무 외주 개발까지, 기획·설계·구현·배포·운영 전 주기를 주도적으로 이끌어왔습니다.",
   email: "SMG05eoin@gmail.com",
-  github: "https://github.com/SMG05oein"
+  github: "https://github.com/SMG05oein",
+  highlights: [
+    { title: "현장 도입 & 서비스 운영", desc: "실제 매장 도입 및 PWA/리눅스 서버 운영 (노란돼지)" },
+    { title: "실무 외주 & 비즈니스 로직", desc: "엠씨네 실무 외주 개발 및 현업 고객사 요구사항 반영" },
+    { title: "기술 확장성 & 융합 역량", desc: "웹 풀스택, 엣지 AI(Jetson/YOLO), 임베디드 및 자동화 구현" }
+  ]
 };
 
 export const skills = {
@@ -67,6 +74,27 @@ export const certifications = [
 ];
 
 export const projects = [
+  {
+    id: 10,
+    category: "extracurricular",
+    title: "노란돼지: 출퇴근·근무·급여 관리 시스템",
+    period: "2026.07 ~",
+    description: "구글 폼·엑셀·파일로 흩어져 있던 출퇴근과 근태를 대체하기 위해, 아르바이트 현장에서 직접 만들어 도입한 근무관리 웹앱입니다. 직원은 자신의 근무 기록을 바로 확인하고, 관리자는 주간 배치·급여·근무지를 한곳에서 다룹니다.",
+    image: "/images/noran_attendance.png",
+    technologies: ["React 19", "Vite", "Zustand", "Bootstrap", "Spring Boot", "Java 21", "Spring Security / JWT", "MySQL", "PWA", "Netlify", "Linux"],
+    badge: "현장 도입",
+    badgeType: "secondary",
+    role: "풀스택 개발 (기획·프론트엔드·백엔드)",
+    links: [
+      { name: "GitHub", url: "https://github.com/SMG05oein/Noran" },
+      { name: "서비스", url: "https://dweaji.netlify.app/login" }
+    ],
+    detailedAnalysis: {
+      background: "노란돼지의 출퇴근과 근태는 구글 폼, 엑셀, 파일 시스템에 나뉘어 관리되고 있었습니다. 아르바이트로 일하면서 근무를 기록해도 구글 폼 설문 결과에는 접근할 수 없어, 내가 기록을 남겼는지조차 확인할 수 없었습니다. 그 불편에서 직원이 자신의 근무를 직접 조회하고 신청부터 기록까지 한곳에서 이어지는 시스템을 만들어야겠다고 생각했습니다. 도입을 위해 팀장님과 상의한 뒤, 직원 화면만이 아니라 주간 배치·직원·근무 기록·급여·근무지를 다루는 관리자 기능까지 함께 넣었습니다.",
+      architecture: "프론트엔드는 React 19, Vite, Zustand, Axios로 구성하고 Netlify에 배포했습니다. 백엔드 API와 MySQL은 리눅스 서버에서 Spring Boot 4 / Java 21로 운영하며, JWT 무상태 인증으로 직원과 관리자 권한을 나눕니다. Netlify의 `/api` 요청은 리눅스 서버로 프록시됩니다. 직원은 월간 캘린더·근무 기록·근무 신청·마이페이지를, 관리자는 주간 배치·직원·기록·급여·근무지 화면을 사용합니다. 홈 화면에 추가할 수 있는 PWA로도 동작합니다.",
+      techDetails: "계좌 등 개인정보는 AES로 저장하고, 근무 기록과 급여는 Apache POI로 엑셀을 내려받거나 대조할 수 있게 했습니다. 근무지 등록에는 다음 주소 검색을, 캘린더에는 공휴일 데이터를 붙였습니다. 운영용 개발자 대시보드에서는 IP 허용 목록과 메일 OTP, 트래픽 조회, 점검 모드, Netlify 배포·롤백을 다룹니다."
+    }
+  },
   {
     id: 1,
     category: "extracurricular",

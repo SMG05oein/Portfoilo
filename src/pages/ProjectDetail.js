@@ -24,21 +24,38 @@ const ProjectDetail = () => {
   return (
     <div className="page-container" style={{ paddingTop: '80px', paddingBottom: 'var(--space-xl)' }}>
       {/* Hero Header */}
-      <div style={{ position: 'relative', width: '100%', height: '500px', overflow: 'hidden', display: 'flex', alignItems: 'flex-end' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
-          <img src={`${process.env.PUBLIC_URL}${project.image}`} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9))' }}></div>
-        </div>
-        <div className="container" style={{ position: 'relative', zIndex: 2, paddingBottom: '4rem' }}>
-          <Link to={project.category === 'in-school' ? '/in-school' : '/extracurricular'} className="text-decoration-none" style={{ color: 'var(--color-primary)', display: 'inline-flex', alignItems: 'center', marginBottom: '1.5rem', fontWeight: '500', transition: 'transform 0.3s ease' }}>
+      <div style={{ 
+        position: 'relative', 
+        width: '100%', 
+        minHeight: '380px', 
+        overflow: 'hidden', 
+        display: 'flex', 
+        alignItems: 'flex-end',
+        background: 'linear-gradient(135deg, var(--color-surface), var(--color-bg-alt))',
+        borderBottom: '1px solid var(--color-border)'
+      }}>
+        <div style={{ 
+          position: 'absolute', 
+          top: 0, 
+          left: 0, 
+          width: '100%', 
+          height: '100%', 
+          zIndex: 1, 
+          backgroundImage: 'radial-gradient(var(--color-border) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+          opacity: 0.4
+        }}></div>
+
+        <div className="container" style={{ position: 'relative', zIndex: 2, paddingBottom: '3rem', paddingTop: '3rem' }}>
+          <Link to={project.category === 'in-school' ? '/in-school' : '/extracurricular'} className="text-decoration-none" style={{ color: 'var(--color-primary)', display: 'inline-flex', alignItems: 'center', marginBottom: '1.5rem', fontWeight: '600', transition: 'transform 0.3s ease' }}>
             <span style={{ marginRight: '0.5rem' }}>&larr;</span> {project.category === 'in-school' ? '교내 활동' : '교외 활동'} 목록으로
           </Link>
           <div className="d-flex align-items-center gap-4 mb-3">
             {project.badge && <span className={`project-badge badge-${project.badgeType} position-relative top-0 left-0`} style={{ transform: 'none', boxShadow: 'none' }}>{project.badge}</span>}
-            <span style={{ color: 'rgba(255, 255, 255, 0.7)', fontWeight: '500' }}>{project.period}</span>
+            <span style={{ color: 'var(--color-text-muted)', fontWeight: '500' }}>{project.period}</span>
           </div>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: '800', lineHeight: '1.1', marginBottom: '1.5rem', color: '#ffffff', textShadow: '0 4px 20px rgba(0,0,0,0.4)' }}>{project.title}</h1>
-          <p style={{ fontSize: '1.25rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '900px', fontWeight: '400', lineHeight: '1.6' }}>{project.description}</p>
+          <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: '800', lineHeight: '1.2', marginBottom: '1.25rem', color: 'var(--color-text-main)' }}>{project.title}</h1>
+          <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', maxWidth: '900px', fontWeight: '400', lineHeight: '1.7' }}>{project.description}</p>
         </div>
       </div>
 

@@ -126,7 +126,7 @@ const ActivityPage = ({ category, title, subtitle }) => {
                       flexShrink: 0,
                       border: `1px solid ${isSelected ? 'var(--color-primary)' : 'var(--color-border)'}`,
                       background: isSelected ? 'var(--color-primary)' : 'var(--color-surface)',
-                      color: isSelected ? '#fff' : 'var(--color-text-main)',
+                      color: isSelected ? 'var(--color-on-primary)' : 'var(--color-text-main)',
                       boxShadow: isSelected ? 'var(--shadow-glow)' : 'none',
                       transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                     }}

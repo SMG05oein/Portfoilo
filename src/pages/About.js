@@ -36,28 +36,45 @@ const About = () => {
         <div className="row mt-5">
           <div className="col-lg-6 mb-5 mb-lg-0">
             <div className="glass-panel p-4 h-100">
-              <h2 className="mb-4">나의 강점 & 개발 철학 (Core Competency)</h2>
+              <h2 className="mb-4">개발 철학 & 실무 강점 (Core Competency)</h2>
               <div style={{ marginBottom: '1.5rem' }}>
                 <span className="badge-primary px-3 py-1 rounded-pill d-inline-block mb-3" style={{ fontSize: '0.85rem' }}>
                   {personalInfo.role}
                 </span>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', lineHeight: '1.8' }}>
+                <p style={{ color: 'var(--color-text-main)', fontSize: '1.15rem', fontWeight: '600', lineHeight: '1.6', marginBottom: '1rem' }}>
+                  "{personalInfo.headline}"
+                </p>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '1.05rem', lineHeight: '1.8' }}>
                   {personalInfo.bio}
                 </p>
               </div>
+
+              {personalInfo.highlights && (
+                <div className="about-highlights-list mb-4">
+                  {personalInfo.highlights.map((item, idx) => (
+                    <div key={idx} className="highlight-box mb-2 p-3 rounded" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                      <div style={{ fontWeight: '700', color: 'var(--color-primary-light, #818cf8)', fontSize: '0.95rem' }}>✓ {item.title}</div>
+                      <div style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginTop: '0.2rem' }}>{item.desc}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
               <div className="mt-4">
                 <div className="mb-3">
-                  <h5 style={{ color: 'var(--color-primary)', fontWeight: '600' }}><FaBolt className="me-2" style={{ verticalAlign: 'text-bottom' }} />핵심 기술 역량 (Core Stack)</h5>
+                  <h5 style={{ color: 'var(--color-primary)', fontWeight: '600' }}><FaBolt className="me-2" style={{ verticalAlign: 'text-bottom' }} />풀스택 설계 및 배포 운영 (Fullstack Delivery)</h5>
                   <p style={{ color: 'var(--color-text-main)', fontSize: '1rem', fontWeight: '500' }}>
-                    교내 프로젝트 및 해커톤에서는 <span style={{ color: 'var(--color-primary)' }}>React</span>, <span style={{ color: 'var(--color-secondary)' }}>Spring Boot</span>, <span style={{ color: 'var(--color-accent)' }}>MySQL</span>을 주력으로 사용하며, 현재 엠씨네 외주 개발 실무에서는 <span style={{ color: '#8892BF' }}>PHP</span>를 기반으로 시스템을 구축 및 운영하고 있습니다.
+                    React 19와 최신 상태관리, Spring Boot 4 기반의 RESTful API 아키텍처, MySQL/Redis를 주력으로 구축하며, Netlify 프록시 및 Linux 서버 환경에서 무중단 운영과 보안(JWT/AES)을 직접 다룹니다.
                   </p>
-                  <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem' }}>
-                    나아가 하드웨어(아두이노, 라즈베리파이) 및 AI 모델링(Ollama)까지 문제 해결에 필요한 기술을 두려움 없이 습득하고 실무에 즉시 적용합니다.
+                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>
+                    실무 외주 현장에서는 PHP(CodeIgniter) 기반의 레거시 및 커스텀 비즈니스 로직을 빠르게 파악해 고객사 요구사항을 안정적으로 실체화하고 있습니다.
                   </p>
                 </div>
                 <div className="mb-3">
-                  <h5 style={{ color: 'var(--color-secondary)', fontWeight: '600' }}><FaBullseye className="me-2" style={{ verticalAlign: 'text-bottom' }} />실무와 외주 경험 (Experience)</h5>
-                  <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem' }}>엠씨네에서의 실무 외주 프로젝트 수행 및 다수의 해커톤, 경진대회(ICT 창작물 등) 경험을 통해 실제 비즈니스 로직과 사용자 니즈를 분석하는 시각을 갖췄습니다.</p>
+                  <h5 style={{ color: 'var(--color-secondary)', fontWeight: '600' }}><FaBullseye className="me-2" style={{ verticalAlign: 'text-bottom' }} />현장 중심의 문제 정의 (Field Problem Solving)</h5>
+                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>
+                    '내가 일하는 매장의 비효율'에서 출발하여 완성한 '노란돼지 근무관리'처럼, 사용자 현장의 진짜 불편함을 기술로 해결하고 실제 필드에 도입해 가치를 검증하는 것에 가장 큰 즐거움을 느낍니다.
+                  </p>
                 </div>
               </div>
             </div>
@@ -76,9 +93,9 @@ const About = () => {
                     fontSize: '1.1rem',
                     fontWeight: '700',
                     border: '2px solid var(--color-primary)',
-                    background: 'rgba(56, 189, 248, 0.15)',
+                    background: 'var(--color-tint)',
                     color: 'var(--color-primary)',
-                    boxShadow: '0 0 15px rgba(56, 189, 248, 0.2)'
+                    boxShadow: 'var(--shadow-glow)'
                   }}>React</div>
                   <div className="skill-item" style={{
                     padding: '0.8rem 1.5rem',
@@ -153,7 +170,7 @@ const About = () => {
                 titleComponent={
                   <h2 className="mb-0 d-flex align-items-center">
                     <FaTrophy className="me-2" style={{ color: 'var(--color-primary)', verticalAlign: 'baseline' }} /> 수상 경력
-                    <span className="badge rounded-pill ms-3" style={{ backgroundColor: 'var(--color-primary)', color: '#fff', fontSize: '1.1rem', verticalAlign: 'middle' }}>총 {awards.length}개</span>
+                    <span className="badge rounded-pill ms-3" style={{ backgroundColor: 'var(--color-primary)', color: 'var(--color-on-primary)', fontSize: '1.1rem', verticalAlign: 'middle' }}>총 {awards.length}개</span>
                   </h2>
                 }
               >
@@ -172,7 +189,7 @@ const About = () => {
                       ) : (
                         <h5 className="mb-3" style={{ fontWeight: '600', color: 'var(--color-text-main)' }}>{award.title}</h5>
                       )}
-                      <span className="badge rounded-pill text-dark mb-3 px-3 py-2" style={{ background: 'var(--color-primary)' }}>{award.award}</span>
+                      <span className="badge rounded-pill mb-3 px-3 py-2" style={{ background: 'var(--color-primary)', color: 'var(--color-on-primary)' }}>{award.award}</span>
                     </div>
                     <small style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>{award.date}</small>
                   </div>
@@ -187,7 +204,7 @@ const About = () => {
                 titleComponent={
                   <h2 className="mb-0 d-flex align-items-center">
                     <FaCertificate className="me-2" style={{ color: 'var(--color-secondary)', verticalAlign: 'baseline' }} /> 교육 및 수료
-                    <span className="badge rounded-pill ms-3" style={{ backgroundColor: 'var(--color-secondary)', color: '#fff', fontSize: '1.1rem', verticalAlign: 'middle' }}>총 {certifications.length}개</span>
+                    <span className="badge rounded-pill ms-3" style={{ backgroundColor: 'var(--color-secondary)', color: 'var(--color-on-primary)', fontSize: '1.1rem', verticalAlign: 'middle' }}>총 {certifications.length}개</span>
                   </h2>
                 }
               >

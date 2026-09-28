@@ -14,7 +14,7 @@
 }
 
 .skill-item:hover {
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.1));
+  background: var(--color-tint);
   border-color: var(--color-primary);
   transform: translateY(-3px);
   color: var(--color-primary);
@@ -59,7 +59,7 @@
 
 .scroll-btn:hover {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-on-primary);
   border-color: var(--color-primary);
   transform: scale(1.05);
 }
@@ -71,7 +71,7 @@
 /* Scroll Card (For Awards & Certifications) */
 .scroll-card {
   min-width: 280px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 1.25rem;
@@ -82,7 +82,18 @@
 }
 
 .scroll-card:hover {
-  border-color: rgba(56, 189, 248, 0.5);
-  background: rgba(56, 189, 248, 0.05);
+  border-color: var(--color-tint-strong);
+  background: var(--color-tint);
   transform: translateY(-2px);
 }
+
+.highlight-box {
+  transition: all 0.25s ease;
+}
+
+.highlight-box:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(99, 102, 241, 0.4) !important;
+  transform: translateX(4px);
+}
+

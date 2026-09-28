@@ -37,7 +37,7 @@ const TechArticle = () => {
 
         <div className="container" style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
           <div className="d-flex align-items-center justify-content-center mb-3">
-            <span className="badge" style={{ background: 'var(--color-primary)', color: '#000', fontSize: '0.9rem', padding: '0.4rem 0.8rem' }}>{article.category}</span>
+            <span className="badge" style={{ background: 'var(--color-primary)', color: 'var(--color-on-primary)', fontSize: '0.9rem', padding: '0.4rem 0.8rem' }}>{article.category}</span>
           </div>
           <h1 className="text-center mb-3" style={{ color: '#ffffff', fontSize: '2.5rem', fontWeight: '700', textShadow: '0 2px 15px rgba(0,0,0,0.6)' }}>{article.title}</h1>
           <div className="text-center" style={{ color: 'rgba(255,255,255,0.95)', fontWeight: '500' }}>
@@ -58,7 +58,7 @@ const TechArticle = () => {
             <div className="glass-panel p-4 p-md-5 markdown-body" style={{ borderRadius: '16px', background: 'var(--color-surface)' }}>
               <div style={{
                 borderLeft: '4px solid var(--color-primary)',
-                background: 'rgba(56, 189, 248, 0.05)',
+                background: 'var(--color-tint)',
                 padding: '1rem 1.5rem',
                 marginBottom: '2rem',
                 borderRadius: '0 8px 8px 0',
@@ -127,7 +127,7 @@ const TechArticle = () => {
                         />
                       </div>
                     ) : (
-                      <code style={{ background: 'rgba(56, 189, 248, 0.1)', color: 'var(--color-primary)', padding: '0.2rem 0.4rem', borderRadius: '4px' }} className={className} {...props}>
+                      <code style={{ background: 'var(--color-tint)', color: 'var(--color-primary)', padding: '0.2rem 0.4rem', borderRadius: '4px' }} className={className} {...props}>
                         {children}
                       </code>
                     )

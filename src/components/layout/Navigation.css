@@ -52,12 +52,12 @@
 
 .nav-link:hover {
   color: var(--color-primary);
-  background: rgba(56, 189, 248, 0.1);
+  background: var(--color-tint);
 }
 
 .nav-link.active {
   color: var(--color-primary);
-  background: rgba(56, 189, 248, 0.08);
+  background: var(--color-tint);
 }
 
 /* Mobile Menu Button */

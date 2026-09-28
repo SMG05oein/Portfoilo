@@ -85,7 +85,7 @@ const TechAnalysis = () => {
                     flexShrink: 0,
                     border: `1px solid ${isSelected ? 'var(--color-primary)' : 'var(--color-border)'}`,
                     background: isSelected ? 'var(--color-primary)' : 'var(--color-surface)',
-                    color: isSelected ? '#fff' : 'var(--color-text-main)',
+                    color: isSelected ? 'var(--color-on-primary)' : 'var(--color-text-main)',
                     boxShadow: isSelected ? 'var(--shadow-glow)' : 'none',
                     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                   }}
@@ -135,7 +135,7 @@ const TechAnalysis = () => {
                     </div>
                     <div className="p-4 d-flex flex-column flex-grow-1">
                       <div className="mb-2">
-                        <span className="badge" style={{ background: 'rgba(56, 189, 248, 0.15)', color: 'var(--color-primary)', border: '1px solid var(--color-primary)', fontSize: '0.8rem', padding: '0.4rem 0.8rem' }}>
+                        <span className="badge" style={{ background: 'var(--color-tint)', color: 'var(--color-primary)', border: '1px solid var(--color-tint-strong)', fontSize: '0.8rem', padding: '0.4rem 0.8rem' }}>
                           {article.category}
                         </span>
                       </div>
