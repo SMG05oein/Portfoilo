@@ -86,7 +86,7 @@ npm install
 npm start
 ```
 
-> 브라우저에서 (http://smg05oein.github.io/Portfoilo)으로 접속하면 포트폴리오를 확인하실 수 있습니다.
+> 브라우저에서 ( http://smg05oein.github.io/Portfoilo )으로 접속하면 포트폴리오를 확인하실 수 있습니다.
 ---
 
 ## 📬 Contact
