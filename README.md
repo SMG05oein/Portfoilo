@@ -38,10 +38,10 @@
 * 📜 **React Markdown & Syntax Highlighter**
 
 **Core Domain Skills (Showcased in Portfolio)**
-* **Front**: React
-* **Backend**: Spring Boot, Python FastAPI, Node.js
-* **AI/Data**: NLP (KoBERT, Bi-GRU), Ollama LLM, Pandas, PyTorch
-* **Hardware**: Raspberry Pi, Arduino
+* **Front**: React, Vite, Zustand, Bootstrap
+* **Backend**: Spring Boot, Java, Python FastAPI, Node.js, MySQL
+* **AI/Data**: NLP (KoBERT, Bi-GRU), Ollama LLM, Pandas, PyTorch, YOLO
+* **Hardware**: Raspberry Pi, Arduino, Jetson Orin Nano
 
 ---
 

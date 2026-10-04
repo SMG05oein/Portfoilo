@@ -86,8 +86,7 @@ export const projects = [
     badgeType: "secondary",
     role: "풀스택 개발 (기획·프론트엔드·백엔드)",
     links: [
-      { name: "GitHub", url: "https://github.com/SMG05oein/Noran" },
-      { name: "서비스", url: "https://dweaji.netlify.app/login" }
+      { name: "서비스", url: "https://dwaeji.kr/login" }
     ],
     detailedAnalysis: {
       background: "노란돼지의 출퇴근과 근태는 구글 폼, 엑셀, 파일 시스템에 나뉘어 관리되고 있었습니다. 아르바이트로 일하면서 근무를 기록해도 구글 폼 설문 결과에는 접근할 수 없어, 내가 기록을 남겼는지조차 확인할 수 없었습니다. 그 불편에서 직원이 자신의 근무를 직접 조회하고 신청부터 기록까지 한곳에서 이어지는 시스템을 만들어야겠다고 생각했습니다. 도입을 위해 팀장님과 상의한 뒤, 직원 화면만이 아니라 주간 배치·직원·근무 기록·급여·근무지를 다루는 관리자 기능까지 함께 넣었습니다.",
